@@ -1,0 +1,31 @@
+
+<!-- [ Workplan-list ] start -->
+          <div class="col-xl-12">
+            <div class="card">
+              <div class="card-header">
+                <h5>
+                  Add Workplan
+                </h5>
+              </div>
+              <div class="card-body">
+                <div class="input-group mb-3">
+                  <input type="text" name="task_insert" class="form-control add_task_todo" placeholder="<?= lang('Dashboard.dashboard_create_todo');?>...">
+                  <div class="input-group-append">
+                    <button type="submit" class="btn waves-effect waves-light btn-secondary btn-icon"> <i class="fa fa-plus"></i> <?= lang('Main.xin_add');?></button>
+                  </div>
+                </div>
+                <div class="new-task">
+                  <div class="to-do-list mb-3">
+                    <div class="d-inline-block">
+                      <label class="">
+                        <input type="checkbox" class="" data-field-id="">
+                        <span class="custom-control-label">
+                        </span> </label>
+                    </div>
+                    <div class="float-right"><a class="delete_todolist" data-fieldid=""><i class="far fa-trash-alt text-danger"></i></a></div> -->
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- [ Workplan-list1 ] end --> 
