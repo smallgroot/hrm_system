@@ -131,8 +131,9 @@ if($day == 'Monday') {
               <div class="col-auto"> 
               </div>
               <div class="col p-l-0">
-                <h6 class="m-b-5"><?= lang('Dashboard.dashboard_welcome');?> <?= $user_info['first_name'].' '.$user_info['last_name'];?></h6>
-                <h6 class="m-b-0 text-primary"><?= $shift_val;?></h6>
+                <br>
+                <h6 class="m-b-5"><?= $user_info['first_name'].' '.$user_info['last_name'];?></h6>
+                <!-- <h6 class="m-b-0 text-primary"><?= $shift_val;?></h6> -->
               </div>
             </div>
             <?php $attributes = array('name' => 'hr_clocking', 'id' => 'hr_clocking', 'autocomplete' => 'off', 'class'=>'m-b-1');?>
