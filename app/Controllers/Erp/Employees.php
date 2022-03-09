@@ -1586,7 +1586,7 @@ class Employees extends BaseController {
 					'rules'  => 'uploaded[document_file]|mime_in[document_file,application/pdf,image/jpg,image/jpeg,image/gif,image/png]|max_size[document_file,5120]',
 					'errors' => [
 						'uploaded' => lang('Main.xin_error_field_text'),
-						'mime_in' => 'wrong size'
+						'mime_in' => 'wrong file size or type'
 					]
 				]
 			];
