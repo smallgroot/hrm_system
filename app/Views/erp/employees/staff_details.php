@@ -224,10 +224,10 @@ $cmodule_attributes = $Moduleattributes->where('company_id',$company_id)->where(
           </div>
           <div class="card-body">
             <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
-              <li class="nav-item"> 
+              <!-- <li class="nav-item"> 
                 <a class="nav-link" id="pills-contract-tab" data-toggle="pill" href="#pills-contract" role="tab" aria-controls="pills-contract" aria-selected="true">
                 Contract Backup
-                </a> </li>
+                </a> </li> -->
               <li class="nav-item"> <a class="nav-link active" id="custom_contract_list_tab" data-toggle="pill" href="#custom_contract_list" role="tab" aria-controls="pills-contract" aria-selected="true">
                 <?= lang('Employees.xin_contract');?>
                 </a> 
@@ -277,7 +277,7 @@ $cmodule_attributes = $Moduleattributes->where('company_id',$company_id)->where(
                         <tr>
                           <th>Active Date</th>
                           <th>Expiry Date</th>
-                          <th>fund_source</th>
+                          <th>Fund Source</th>
                           <th>Status</th>
                         </tr>
                       </thead>
@@ -457,8 +457,7 @@ $cmodule_attributes = $Moduleattributes->where('company_id',$company_id)->where(
                         <tr>
                           <th>Salary Month</th>
                           <th>Payslip Type</th>
-                          <th>Basic Salary</th>
-                          
+                          <th>Basic Salary</th>                          
                         </tr>
                       </thead>
                     </table>
@@ -1458,8 +1457,7 @@ $cmodule_attributes = $Moduleattributes->where('company_id',$company_id)->where(
                         <label>
                           <?= lang('Employees.xin_bio');?> <span class="text-danger">*</span>
                         </label>
-                        <textarea class="form-control" name="bio" rows="4" placeholder="<?= lang('Employees.xin_enter_bio');?>"><?= $employee_detail['bio'];?>
-</textarea>
+                        <textarea class="form-control" name="bio" rows="4" placeholder="<?= lang('Employees.xin_enter_bio');?>"><?= $employee_detail['bio'];?></textarea>
                       </div>
                     </div>
                     <div class="col-sm-6">

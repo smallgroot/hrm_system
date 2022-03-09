@@ -1583,7 +1583,7 @@ class Employees extends BaseController {
 					]
 				],
 				'document_file' => [
-					'rules'  => 'uploaded[document_file]|mime_in[document_file,image/jpg,image/jpeg,image/gif,image/png]|max_size[document_file,5120]',
+					'rules'  => 'uploaded[document_file]|mime_in[document_file,application/pdf,image/jpg,image/jpeg,image/gif,image/png]|max_size[document_file,5120]',
 					'errors' => [
 						'uploaded' => lang('Main.xin_error_field_text'),
 						'mime_in' => 'wrong size'
@@ -1687,7 +1687,8 @@ class Employees extends BaseController {
 				// upload file
 				 $validated = $this->validate([
 					'document_file' => [
-						'rules'  => 'uploaded[document_file]|mime_in[document_file,image/jpg,image/jpeg,image/gif,image/png]|max_size[document_file,5120]',
+						// 'rules'  => 'uploaded[document_file]|mime_in[document_file,image/jpg,image/jpeg,image/gif,image/png]|max_size[document_file,5120]',
+						'rules'  => 'uploaded[document_file]|mime_in[document_file,application/pdf,image/jpg,image/jpeg,image/gif,image/png]|max_size[document_file,5120]',
 						'errors' => [
 							'uploaded' => lang('Asset.xin_error_asset_image_field'),
 							'mime_in' => 'wrong size'
