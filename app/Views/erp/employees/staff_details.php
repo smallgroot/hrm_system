@@ -166,11 +166,11 @@ $cmodule_attributes = $Moduleattributes->where('company_id',$company_id)->where(
         </span> <span class="float-right"><i class="feather icon-chevron-right"></i></span> </a>
         <?php } ?>        
         
-        <a class="nav-link list-group-item list-group-item-action" id="user-set-edu-information-tab" data-toggle="pill" href="#user-edu-set-information" role="tab" aria-controls="user-edu-set-information" aria-selected="false"> <span class="f-w-500"><i class="feather icon-book-open m-r-10 h5 "></i>
+        <a class="nav-link list-group-item list-group-item-action" id="user-set-edu-tab" data-toggle="pill" href="#user-set-edu" role="tab" aria-controls="user-set-edu" aria-selected="false"> <span class="f-w-500"><i class="feather icon-book-open m-r-10 h5 "></i>
         <?= lang('Education Information');?>
         </span> <span class="float-right"><i class="feather icon-chevron-right"></i></span> </a>         
         
-        <a class="nav-link list-group-item list-group-item-action" id="user-set-exp-information-tab" data-toggle="pill" href="#user-set-exp-information" role="tab" aria-controls="user-set-exp-information" aria-selected="false"> <span class="f-w-500"><i class="feather icon-briefcase m-r-10 h5 "></i>
+        <a class="nav-link list-group-item list-group-item-action" id="user-set-experience-tab" data-toggle="pill" href="#user-set-experience" role="tab" aria-controls="user-set-experience" aria-selected="false"> <span class="f-w-500"><i class="feather icon-briefcase m-r-10 h5 "></i>
         <?= lang('Work Experience Information');?>
         </span> <span class="float-right"><i class="feather icon-chevron-right"></i></span> </a> 
         
@@ -253,22 +253,8 @@ $cmodule_attributes = $Moduleattributes->where('company_id',$company_id)->where(
             </ul>
             <div class="tab-content" id="pills-tabContent">
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<!-- custom contract crud start here-->
-<div class="tab-pane fade active show" id="custom_contract_list" role="tabpanel" aria-labelledby="custom_contract_list_tab">
+              <!-- custom contract crud start here-->
+              <div class="tab-pane fade active show" id="custom_contract_list" role="tabpanel" aria-labelledby="custom_contract_list_tab">
                 <div class="card-body user-profile-list">
                   <h5 class="mt-1 mb-3 pb-3 border-bottom">All Contracts</h5>
                   <div class="box-datatable table-responsive">
@@ -284,14 +270,12 @@ $cmodule_attributes = $Moduleattributes->where('company_id',$company_id)->where(
                     </table>
                   </div>
                 </div>
-<!-- add contract data -->
+              <!-- add contract data -->
                 <?php $attributes = array('name' => 'user_contract', 'id' => 'user_contract', 'autocomplete' => 'off');?>
                 <?php $hidden = array('token' => $segment_id);?>
                 <?= form_open('erp/employees/add_contract', $attributes, $hidden);?>
                 <div class="card-body">
                   <div class="row">
-                    
-
 
                   <div class="col-sm-6">
                       <div class="form-group">
@@ -327,34 +311,32 @@ $cmodule_attributes = $Moduleattributes->where('company_id',$company_id)->where(
                       </div>
                     </div>
 
-<!-- contract start here -->
+                <!-- contract start here -->
+                <div class="col-sm-6">
+                    <div class="form-group">
+                      <label>
+                        Contract Start Date
+                        <span class="text-danger">*</span></label>
+                      <div class="input-group">
+                        <input type="text" class="form-control date" id="contract_start_date" name="contract_start_date" placeholder="Contract Start Date">
+                        <div class="input-group-append"><span class="input-group-text"><i class="fas fa-calendar-alt"></i></span></div>
+                      </div>
+                    </div>
+                  </div>
                   <div class="col-sm-6">
-                      <div class="form-group">
-                        <label>
-                          Contract Start Date
-                          <span class="text-danger">*</span></label>
-                        <div class="input-group">
-                          <input type="text" class="form-control date" id="contract_start_date" name="contract_start_date" placeholder="Contract Start Date">
-                          <div class="input-group-append"><span class="input-group-text"><i class="fas fa-calendar-alt"></i></span></div>
-                        </div>
+                    <div class="form-group">
+                      <label>
+                        Contract End Date
+                      </label>
+                      <div class="input-group">
+                        <input type="text" class="form-control date" id="contract_end_date" name="contract_end_date" placeholder="Contract End Date" value="">
+                        <div class="input-group-append"><span class="input-group-text"><i class="fas fa-calendar-alt"></i></span></div>
                       </div>
                     </div>
-                    <div class="col-sm-6">
-                      <div class="form-group">
-                        <label>
-                          Contract End Date
-                        </label>
-                        <div class="input-group">
-                          <input type="text" class="form-control date" id="contract_end_date" name="contract_end_date" placeholder="Contract End Date" value="">
-                          <div class="input-group-append"><span class="input-group-text"><i class="fas fa-calendar-alt"></i></span></div>
-                        </div>
-                      </div>
-                    </div>
-<!-- contract end here -->
-<!-- fund and contract type start here -->
+                  </div>
+                  <!-- contract end here -->
 
-
-
+                  <!-- fund and contract type start here -->
                   <div class="col-sm-6" id="">
                       <div class="form-group">
                         <label for="designation">
@@ -387,8 +369,7 @@ $cmodule_attributes = $Moduleattributes->where('company_id',$company_id)->where(
                         </select>
                       </div>
                     </div>
-
-<!-- fund and contract type end here -->
+                    <!-- fund and contract type end here -->
                     
                     <div class="col-sm-6">
                       <div class="form-group">
@@ -414,8 +395,6 @@ $cmodule_attributes = $Moduleattributes->where('company_id',$company_id)->where(
                         </select>
                       </div>
                     </div>
-
-
                     <!-- <div class="col-md-6">
                       <div class="form-group">
                         <label for="account_number">
@@ -439,16 +418,10 @@ $cmodule_attributes = $Moduleattributes->where('company_id',$company_id)->where(
                 </div>
                 <?= form_close(); ?>
               </div>
-<!-- custom contract crud end here-->
+              <!-- custom contract crud end here-->
 
-
-
-
-
-
-
-<!-- payslip list start here-->
-<div class="tab-pane fade" id="payment_schedule_list" role="tabpanel" aria-labelledby="payment_schedule_list_tab">
+              <!-- payslip list start here-->
+              <div class="tab-pane fade" id="payment_schedule_list" role="tabpanel" aria-labelledby="payment_schedule_list_tab">
                 <div class="card-body user-profile-list">
                   <h5 class="mt-1 mb-3 pb-3 border-bottom">Payment Schedules</h5>
                   <div class="box-datatable table-responsive">
@@ -463,23 +436,9 @@ $cmodule_attributes = $Moduleattributes->where('company_id',$company_id)->where(
                     </table>
                   </div>
                 </div>
-<!-- add contract data -->
-</div>
-<!-- payslip list end here-->
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+              <!-- add contract data -->
+              </div>
+              <!-- payslip list end here-->
 
               <!-- <div class="tab-pane fade active show" id="pills-contract" role="tabpanel" aria-labelledby="pills-contract-tab"> -->
               <div class="tab-pane fade" id="pills-contract" role="tabpanel" aria-labelledby="pills-contract-tab">
@@ -1692,8 +1651,7 @@ $cmodule_attributes = $Moduleattributes->where('company_id',$company_id)->where(
                         <label>
                           <?= lang('Employees.xin_bank_branch');?> <span class="text-danger">*</span>
                         </label>
-                        <textarea class="form-control" placeholder="<?= lang('Employees.xin_bank_branch');?>" name="bank_branch"><?= $employee_detail['bank_branch'];?>
-</textarea>
+                        <textarea class="form-control" placeholder="<?= lang('Employees.xin_bank_branch');?>" name="bank_branch"><?= $employee_detail['bank_branch'];?></textarea>
                       </div>
                     </div>
                   </div>
@@ -1747,7 +1705,7 @@ $cmodule_attributes = $Moduleattributes->where('company_id',$company_id)->where(
                           <?= lang('Main.xin_address');?> <span class="text-danger">*</span>
                         </label>
                         <textarea class="form-control" placeholder="<?= lang('Main.xin_address');?>" name="contact_address"><?= $employee_detail['contact_address'];?>
-</textarea>
+                        </textarea>
                       </div>
                     </div>
                   </div>
@@ -1764,6 +1722,98 @@ $cmodule_attributes = $Moduleattributes->where('company_id',$company_id)->where(
         </div>
       </div>
       <?php } ?>
+      
+      <!-- user education info - start -->
+      <div class="tab-pane fade" id="user-set-edu" role="tabpanel" aria-labelledby="user-set-edu-tab">
+        <div class="card user-profile-list">
+          <div class="card-header">
+            <h5><i data-feather="file-plus" class="icon-svg-primary wid-20"></i><span class="p-l-5">
+              <?= lang('Employees.xin_documents');?>
+              </span></h5>
+          </div>
+          <div class="card-body">
+            <div class="box-datatable table-responsive">
+              <table class="table table-striped table-bordered dataTable" id="xin_table_document" style="width:100%;">
+                <thead>
+                  <tr>
+                    <th><?= lang('Employees.xin_document_name');?></th>
+                    <th><?= lang('Employees.xin_document_type');?></th>
+                    <th><?= lang('Employees.xin_document_file');?></th>
+                  </tr>
+                </thead>
+              </table>
+            </div>
+          </div>
+          <div class="card-header with-elements"> <span class="card-header-title mr-2"> <strong>
+            <?= lang('Main.xin_add_new');?>
+            </strong>
+            <?= lang('Employees.xin_document');?>
+            </span> </div>
+          <?php $attributes = array('name' => 'user_document', 'id' => 'user_document', 'autocomplete' => 'off');?>
+          <?php $hidden = array('token' => $segment_id);?>
+          <?= form_open_multipart('erp/employees/add_document', $attributes, $hidden);?>
+          <div class="card-body pb-2">
+            <div class="row">
+              <div class="col-sm-6">
+                <div class="form-group">
+                  <label for="date_of_expiry" class="control-label">
+                    <?= lang('Employees.xin_document_name');?>
+                    <span class="text-danger">*</span></label>
+                  <input class="form-control" placeholder="<?= lang('Employees.xin_document_name');?>" name="document_name" type="text">
+                </div>
+              </div>
+              <div class="col-sm-6">
+                <div class="form-group">
+                  <label for="title" class="control-label">
+                    <?= lang('Employees.xin_document_type');?>
+                    <span class="text-danger">*</span></label>
+                  <input class="form-control" placeholder="<?= lang('Employees.xin_document_eg_payslip_etc');?>" name="document_type" type="text">
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-sm-12">
+                <div class="form-group">
+                  <label for="logo">
+                    <?= lang('Employees.xin_document_file');?>
+                    <span class="text-danger">*</span> </label>
+                  <div class="custom-file">
+                    <input type="file" class="custom-file-input" name="document_file">
+                    <label class="custom-file-label">
+                      <?= lang('Main.xin_choose_file');?>
+                    </label>
+                    <small>
+                    <?= lang('Employees.xin_e_details_d_type_file');?>
+                    </small> </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="card-footer text-right">
+            <button  type="submit" class="btn btn-primary">
+            <?= lang('Employees.xin_add_document');?>
+            </button>
+          </div>
+          <?= form_close(); ?>
+        </div>
+      </div>
+      <!-- user education info - end -->
+
+      <!-- user work experience info - start -->
+      <div class="tab-pane fade" id="user-set-experience" role="tabpanel" aria-labelledby="user-set-experience-tab">
+        <div class="card">
+          <div class="card-header">
+            <h4>This is a header</h4>
+          </div>
+        </div>
+        <div class="card-body">
+
+        </div>
+
+      </div>
+      <!-- user work experience info - end -->
+
+
       <?php if(in_array('staff4',staff_role_resource()) || $user_info['user_type'] == 'company') { ?>
       <div class="tab-pane fade" id="user-set-picture" role="tabpanel" aria-labelledby="user-set-picture-tab">
         <div class="card">
