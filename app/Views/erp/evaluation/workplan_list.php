@@ -85,19 +85,19 @@ if($user_info['user_type'] == 'staff'){
               </select> -->
             </div>
           </div>
-        <div class="col-md-4">
-            <div class="form-group">
-              <label for="company_name">
-              Select Quarter of Year
-                <span class="text-danger">*</span> 
-              </label>
-              	<div class="input-group">
-                <select id="quarteryear" id="month_year" name="month_year" ></select>
-                    <!-- <input class="form-control hr_month_year" placeholder="<?php echo lang('Payroll.xin_select_month');?>" id="month_year" name="month_year" type="text"> -->
-                    <div class="input-group-append"><span class="input-group-text"><i class="fas fa-calendar-alt"></i></span></div>
-                </div>
+          <div class="col-md-4">
+              <div class="form-group">
+                <label for="company_name">
+                Select Quarter of Year
+                  <span class="text-danger">*</span> 
+                </label>
+                  <div class="input-group">
+                  <select id="quarteryear" id="month_year" name="month_year" ></select>
+                      <!-- <input class="form-control hr_month_year" placeholder="<?php echo lang('Payroll.xin_select_month');?>" id="month_year" name="month_year" type="text"> -->
+                      <div class="input-group-append"><span class="input-group-text"><i class="fas fa-calendar-alt"></i></span></div>
+                  </div>
+              </div>
             </div>
-          </div>
         </div>
         
         <div class="col-md-4">      

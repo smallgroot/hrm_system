@@ -156,7 +156,7 @@ class Employees extends BaseController {
 	}
 	
 	// list
-	// employee list (staff_list.php)
+	// employee list (staff_list.php) 
 	public function employees_list() {
 
 		$session = \Config\Services::session();

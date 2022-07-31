@@ -1086,7 +1086,7 @@ $cmodule_attributes = $Moduleattributes->where('company_id',$company_id)->where(
                       </div>
                     </div>
                   <!-- contract start & end -->
-                  <div class="col-md-6">
+                  <div class="col-md-4">
                     <div class="form-group">
                       <label for="contact_number">
                         <?= lang('Main.xin_contact_number');?>
@@ -1094,7 +1094,15 @@ $cmodule_attributes = $Moduleattributes->where('company_id',$company_id)->where(
                       <input class="form-control" placeholder="<?= lang('Main.xin_contact_number');?>" name="contact_number" type="text" value="<?= $result['contact_number'];?>">
                     </div>
                   </div>
-                  <div class="col-md-6">
+                  <div class="col-md-4">
+                    <div class="form-group">
+                      <label for="contact_number_2">
+                        <?= lang('Main.xin_contact_number_2');?>
+                        <span class="text-danger"></span></label>
+                      <input class="form-control" placeholder="<?= lang('Main.xin_contact_number_2');?>" name="contact_number_2" type="text" value="<?= $result['contact_number_2'];?>">
+                    </div>
+                  </div>
+                  <div class="col-md-4">
                     <div class="form-group">
                       <label for="gender" class="control-label">
                         <?= lang('Main.xin_employee_gender');?>
@@ -1111,14 +1119,14 @@ $cmodule_attributes = $Moduleattributes->where('company_id',$company_id)->where(
                   </div>
                 </div>
                 <div class="row">
-                  <div class="col-md-4">
+                  <!-- <div class="col-md-4">
                     <div class="form-group">
                       <label for="date_of_birth">
                         <?= lang('Employees.dashboard_employee_id');?> <span class="text-danger">*</span>
                       </label>
                       <input class="form-control" placeholder="<?= lang('Employees.dashboard_employee_id');?>" name="employee_id" type="text" value="<?= $employee_detail['employee_id'];?>">
                     </div>
-                  </div>
+                  </div> -->
                   <div class="col-md-4">
                     <div class="form-group">
                       <label for="date_of_birth">
@@ -1183,30 +1191,6 @@ $cmodule_attributes = $Moduleattributes->where('company_id',$company_id)->where(
                   </div>
                 </div>
                 <div class="row">
-                  <div class="col-md-4">
-                    <div class="form-group">
-                      <label for="estate">
-                        <?= lang('Main.xin_state');?>
-                      </label>
-                      <input class="form-control" placeholder="<?= lang('Main.xin_state');?>" name="state" type="text" value="<?= $result['state'];?>">
-                    </div>
-                  </div>
-                  <div class="col-md-4">
-                    <div class="form-group">
-                      <label for="ecity">
-                        <?= lang('Main.xin_city');?>
-                      </label>
-                      <input class="form-control" placeholder="<?= lang('Main.xin_city');?>" name="city" type="text" value="<?= $result['city'];?>">
-                    </div>
-                  </div>
-                  <div class="col-md-4">
-                    <div class="form-group">
-                      <label for="ezipcode" class="control-label">
-                        <?= lang('Main.xin_zipcode');?>
-                      </label>
-                      <input class="form-control" placeholder="<?= lang('Main.xin_zipcode');?>" name="zipcode" type="text" value="<?= $result['zipcode'];?>">
-                    </div>
-                  </div>
                   <div class="col-md-6">
                     <div class="form-group">
                       <label for="email" class="control-label">
@@ -1291,6 +1275,32 @@ $cmodule_attributes = $Moduleattributes->where('company_id',$company_id)->where(
                     </div>
                   </div>
                 </div>
+                <div class="row">
+                  <div class="col-md-4">
+                      <div class="form-group">
+                        <label for="estate">
+                          <?= lang('Main.xin_state');?>
+                        </label>
+                        <input class="form-control" placeholder="<?= lang('Main.xin_state');?>" name="state" type="text" value="<?= $result['state'];?>">
+                      </div>
+                    </div>
+                    <div class="col-md-4">
+                      <div class="form-group">
+                        <label for="ecity">
+                          <?= lang('Main.xin_city');?>
+                        </label>
+                        <input class="form-control" placeholder="<?= lang('Main.xin_city');?>" name="city" type="text" value="<?= $result['city'];?>">
+                      </div>
+                    </div>
+                    <div class="col-md-4">
+                      <div class="form-group">
+                        <label for="ezipcode" class="control-label">
+                          <?= lang('Main.xin_zipcode');?>
+                        </label>
+                        <input class="form-control" placeholder="<?= lang('Main.xin_zipcode');?>" name="zipcode" type="text" value="<?= $result['zipcode'];?>">
+                      </div>
+                    </div>                  
+                  </div>
                 <?php if($bcount_module_attributes > 0):?>
                 <div class="row">
                   <?php foreach($bmodule_attributes as $mattribute):?>
@@ -1574,7 +1584,7 @@ $cmodule_attributes = $Moduleattributes->where('company_id',$company_id)->where(
                       <input type="text" class="form-control" placeholder="<?= lang('Employees.xin_profile_url');?>" name="twitter_profile" value="<?= $employee_detail['twitter_profile'];?>">
                     </div>
                   </div>
-                  <div class="form-group">
+                  <!-- <div class="form-group">
                     <label>
                       <?= lang('Employees.xin_google_plus');?>
                     </label>
@@ -1582,7 +1592,7 @@ $cmodule_attributes = $Moduleattributes->where('company_id',$company_id)->where(
                       <div class="input-group-prepend"> <span class="input-group-text bg-googleplus text-white"> <i class="fab fa-google-plus-g"></i> </span> </div>
                       <input type="text" class="form-control" placeholder="<?= lang('Employees.xin_profile_url');?>" name="gplus_profile" value="<?= $employee_detail['gplus_profile'];?>">
                     </div>
-                  </div>
+                  </div> -->
                   <div class="form-group">
                     <label>
                       <?= lang('Employees.xin_linkedin');?>
