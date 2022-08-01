@@ -120,7 +120,7 @@ $get_animate='';
                   </div>
                 </div>
               </div>
-              <div class="col-md-4">
+              <!-- <div class="col-md-4">
                 <div class="form-group">
                   <label for="employee_id">
                     <?= lang('Employees.dashboard_employee_id');?>
@@ -128,7 +128,7 @@ $get_animate='';
                   <span class="text-danger">*</span>
                   <input class="form-control" placeholder="<?= lang('Employees.dashboard_employee_id');?>" name="employee_id" type="text" value="<?php echo $employee_id;?>">
                 </div>
-              </div>
+              </div> -->
               <div class="col-md-4">
                 <div class="form-group">
                   <label for="contact_number">

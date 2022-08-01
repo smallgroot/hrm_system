@@ -1140,20 +1140,27 @@ $cmodule_attributes = $Moduleattributes->where('company_id',$company_id)->where(
                   </div>
                   <div class="col-md-4">
                     <div class="form-group">
-                      <label for="status" class="control-label">
-                        <?= lang('Main.dashboard_xin_status');?>
+                      <label for="date_of_birth">
+                        <?= lang('Employees.xin_employee_nid');?>
                       </label>
-                      <select class="form-control" name="status" data-plugin="select_hrm" data-placeholder="<?= lang('Main.dashboard_xin_status');?>">
-                        <option value="0" <?php if($result['is_active']=='0'):?> selected <?php endif; ?>>
-                        <?= lang('Main.xin_employees_inactive');?>
-                        </option>
-                        <option value="1" <?php if($result['is_active']=='1'):?> selected <?php endif; ?>>
-                        <?= lang('Main.xin_employees_active');?>
-                        </option>
-                      </select>
+                      <div class="input-group">
+                        <input class="form-control" placeholder="<?= lang('Employees.xin_employee_nid');?>" name="date_of_birth" type="text" value="<?= $employee_detail['date_of_birth'];?>">
+                        <div class="input-group-append"><span class="input-group-text"><i class="fas fa-calendar-alt"></i></span></div>
+                      </div>
                     </div>
                   </div>
-                  <div class="col-md-6">
+                  <div class="col-md-4">
+                    <div class="form-group">
+                      <label for="date_of_birth">
+                        <?= lang('Employees.xin_employee_passport');?>
+                      </label>
+                      <div class="input-group">
+                        <input class="form-control" placeholder="<?= lang('Employees.xin_employee_passport');?>" name="date_of_birth" type="text" value="<?= $employee_detail['date_of_birth'];?>">
+                        <div class="input-group-append"><span class="input-group-text"><i class="fas fa-calendar-alt"></i></span></div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-4">
                     <div class="form-group">
                       <label for="marital_status" class="control-label">
                         <?= lang('Employees.xin_employee_mstatus');?>
@@ -1174,7 +1181,22 @@ $cmodule_attributes = $Moduleattributes->where('company_id',$company_id)->where(
                       </select>
                     </div>
                   </div>
-                  <div class="col-md-6">
+                  <div class="col-md-4">
+                    <div class="form-group">
+                      <label for="status" class="control-label">
+                        <?= lang('Main.dashboard_xin_status');?>
+                      </label>
+                      <select class="form-control" name="status" data-plugin="select_hrm" data-placeholder="<?= lang('Main.dashboard_xin_status');?>">
+                        <option value="0" <?php if($result['is_active']=='0'):?> selected <?php endif; ?>>
+                        <?= lang('Main.xin_employees_inactive');?>
+                        </option>
+                        <option value="1" <?php if($result['is_active']=='1'):?> selected <?php endif; ?>>
+                        <?= lang('Main.xin_employees_active');?>
+                        </option>
+                      </select>
+                    </div>
+                  </div>
+                  <div class="col-md-4">
                     <div class="form-group">
                       <label for="role">
                         <?= lang('Main.xin_employee_role');?>

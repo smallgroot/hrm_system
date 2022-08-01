@@ -19,6 +19,8 @@ return [
 	'xin_view_employee' => 'View Employee',
 	'xin_employee_details' => 'Employee Details',
 	'xin_employee_dob' => "Date of Birth",
+	'xin_employee_nid' => "NID Number",
+	'xin_employee_passport' => "Passport Number",
 	'xin_employee_doj' => "Date of Joining",
 	'xin_employee_dol' => "Date of Leaving",
 	'xin_employee_mstatus' => "Marital Status",
