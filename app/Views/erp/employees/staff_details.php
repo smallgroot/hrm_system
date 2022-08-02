@@ -1140,26 +1140,27 @@ $cmodule_attributes = $Moduleattributes->where('company_id',$company_id)->where(
                   </div>
                   <div class="col-md-4">
                     <div class="form-group">
-                      <label for="date_of_birth">
+                      <label for="user_nid">
                         <?= lang('Employees.xin_employee_nid');?>
                       </label>
                       <div class="input-group">
-                        <input class="form-control" placeholder="<?= lang('Employees.xin_employee_nid');?>" name="date_of_birth" type="text" value="<?= $employee_detail['date_of_birth'];?>">
+                        <input class="form-control" placeholder="<?= lang('Employees.xin_employee_nid');?>" name="user_nid" type="text" value="<?= $result['user_nid'];?>">
                         <div class="input-group-append"><span class="input-group-text"><i class="fas fa-calendar-alt"></i></span></div>
                       </div>
                     </div>
                   </div>
                   <div class="col-md-4">
                     <div class="form-group">
-                      <label for="date_of_birth">
+                      <label for="user_passport">
                         <?= lang('Employees.xin_employee_passport');?>
                       </label>
                       <div class="input-group">
-                        <input class="form-control" placeholder="<?= lang('Employees.xin_employee_passport');?>" name="date_of_birth" type="text" value="<?= $employee_detail['date_of_birth'];?>">
+                        <input class="form-control" placeholder="<?= lang('Employees.xin_employee_passport');?>" name="user_passport" type="text" value="<?= $result['user_passport'];?>">
                         <div class="input-group-append"><span class="input-group-text"><i class="fas fa-calendar-alt"></i></span></div>
                       </div>
                     </div>
                   </div>
+                  <!-- User Basic info is stored in $result and User Details is stored in $employee_detail -->
                   <div class="col-md-4">
                     <div class="form-group">
                       <label for="marital_status" class="control-label">
@@ -1298,23 +1299,31 @@ $cmodule_attributes = $Moduleattributes->where('company_id',$company_id)->where(
                   </div>
                 </div>
                 <div class="row">
-                  <div class="col-md-4">
-                      <div class="form-group">
+                  <div class="col-md-3">
+                  <div class="form-group">
                         <label for="estate">
                           <?= lang('Main.xin_state');?>
                         </label>
                         <input class="form-control" placeholder="<?= lang('Main.xin_state');?>" name="state" type="text" value="<?= $result['state'];?>">
                       </div>
                     </div>
-                    <div class="col-md-4">
+                    <div class="col-md-3">
                       <div class="form-group">
-                        <label for="ecity">
-                          <?= lang('Main.xin_city');?>
+                        <label for="edistrict">
+                          <?= lang('Main.xin_district');?>
                         </label>
-                        <input class="form-control" placeholder="<?= lang('Main.xin_city');?>" name="city" type="text" value="<?= $result['city'];?>">
+                        <input class="form-control" placeholder="<?= lang('Main.xin_district');?>" name="district" type="text" value="<?= $result['district'];?>">
                       </div>
                     </div>
-                    <div class="col-md-4">
+                    <div class="col-md-3">
+                      <div class="form-group">
+                        <label for="esubdistrict">
+                          <?= lang('Main.xin_subdistrict');?>
+                        </label>
+                        <input class="form-control" placeholder="<?= lang('Main.xin_subdistrict');?>" name="subdistrict" type="text" value="<?= $result['subdistrict'];?>">
+                      </div>
+                    </div>
+                    <div class="col-md-3">
                       <div class="form-group">
                         <label for="ezipcode" class="control-label">
                           <?= lang('Main.xin_zipcode');?>

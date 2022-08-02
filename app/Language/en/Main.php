@@ -39,6 +39,8 @@ return [
 	'xin_address_1' => 'Address Line 1',
 	'xin_address_2' => 'Address Line 2',
 	'xin_city' => 'City',
+	'xin_subdistrict' => 'Sub-District',
+	'xin_district' => 'District',
 	'xin_state' => 'Division',
 	'xin_zipcode' => 'Zip Code / Postal Code',
 	'xin_country' => 'Country',

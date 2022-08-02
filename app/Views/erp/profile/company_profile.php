@@ -290,9 +290,17 @@ $xin_system = erp_company_settings();
             <div class="col-md-4">
               <div class="form-group">
                 <label for="city">
-                  <?= lang('Main.xin_city');?>
+                  <?= lang('Main.xin_subdistrict');?>
                   <span class="text-danger">*</span></label>
-                <input class="form-control" placeholder="<?= lang('Main.xin_city');?>" name="city" type="text" value="<?= $result['city'];?>">
+                <input class="form-control" placeholder="<?= lang('Main.xin_subdistrict');?>" name="subdistrict" type="text" value="<?= $result['subdistrict'];?>">
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="form-group">
+                <label for="district">
+                  <?= lang('Main.xin_district');?>
+                  <span class="text-danger">*</span></label>
+                <input class="form-control" placeholder="<?= lang('Main.xin_district');?>" name="district" type="text" value="<?= $result['district'];?>">
               </div>
             </div>
             <div class="col-md-4">

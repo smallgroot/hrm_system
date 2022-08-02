@@ -764,7 +764,9 @@ class Employees extends BaseController {
 			// $employee_id = $this->request->getPost('employee_id',FILTER_SANITIZE_STRING);
 			$role = $this->request->getPost('role',FILTER_SANITIZE_STRING);
 			$gender = $this->request->getPost('gender',FILTER_SANITIZE_STRING);
-			$office_shift_id = $this->request->getPost('office_shift_id',FILTER_SANITIZE_STRING);
+			$user_nid = $this->request->getPost('user_nid',FILTER_SANITIZE_STRING);
+			$user_passport = $this->request->getPost('user_passport',FILTER_SANITIZE_STRING);
+			// $office_shift_id = $this->request->getPost('office_shift_id',FILTER_SANITIZE_STRING);
 			$department_id = $this->request->getPost('department_id',FILTER_SANITIZE_STRING);
 			$designation_id = $this->request->getPost('designation_id',FILTER_SANITIZE_STRING);
 			$basic_salary = $this->request->getPost('basic_salary',FILTER_SANITIZE_STRING);
@@ -786,13 +788,16 @@ class Employees extends BaseController {
 				'contact_number'  => $contact_number,
 				'country'  => 0,
 				'user_role_id' => $role,
+				'profile_photo'  => $file_name,
 				'address_1'  => '',
 				'address_2'  => '',
-				'city'  =>'',
-				'profile_photo'  => $file_name,
+				'subdistrict'  =>'',
+				'district'  =>'',
 				'state'  => '',
 				'zipcode' => '',
 				'gender' => $gender,
+				'user_nid' => $user_nid,
+				'user_passport' => $user_passport,
 				'company_name' => $user_info['company_name'],
 				'trading_name' => '',
 				'registration_no' => '',
@@ -1801,9 +1806,12 @@ class Employees extends BaseController {
 			$contact_number = $this->request->getPost('contact_number',FILTER_SANITIZE_STRING);
 			$role = $this->request->getPost('role',FILTER_SANITIZE_STRING);
 			$gender = $this->request->getPost('gender',FILTER_SANITIZE_STRING);
+			$user_nid = $this->request->getPost('user_nid',FILTER_SANITIZE_STRING);
+			$user_passport = $this->request->getPost('user_passport',FILTER_SANITIZE_STRING);
 			$state = $this->request->getPost('state',FILTER_SANITIZE_STRING);
+			$district = $this->request->getPost('district',FILTER_SANITIZE_STRING);
+			$subdistrict = $this->request->getPost('subdistrict',FILTER_SANITIZE_STRING);
 			$zipcode = $this->request->getPost('zipcode',FILTER_SANITIZE_STRING);
-			$city = $this->request->getPost('city',FILTER_SANITIZE_STRING);
 			$status = $this->request->getPost('status',FILTER_SANITIZE_STRING);
 			$address_1 = $this->request->getPost('address_1',FILTER_SANITIZE_STRING);
 			$address_2 = $this->request->getPost('address_2',FILTER_SANITIZE_STRING);
@@ -1865,10 +1873,13 @@ class Employees extends BaseController {
 				'user_role_id' => $role,
 				'address_1'  => $address_1,
 				'address_2'  => $address_2,
-				'city'  => $city,
+				'subdistrict'  => $subdistrict,
+				'district'  => $district,
 				'state'  => $state,
 				'zipcode' => $zipcode,
 				'gender' => $gender,
+				'user_nid' => $user_nid,
+				'user_passport' => $user_passport,
 				'is_active'  => $status
 			];
 			$result = $UsersModel->update($id, $data);
@@ -2363,9 +2374,12 @@ class Employees extends BaseController {
 			$contact_number = $this->request->getPost('contact_number',FILTER_SANITIZE_STRING);
 			$role = $this->request->getPost('role',FILTER_SANITIZE_STRING);
 			$gender = $this->request->getPost('gender',FILTER_SANITIZE_STRING);
+			$user_nid = $this->request->getPost('user_nid',FILTER_SANITIZE_STRING);
+			$user_passport = $this->request->getPost('user_passport',FILTER_SANITIZE_STRING);
 			$state = $this->request->getPost('state',FILTER_SANITIZE_STRING);
+			$district = $this->request->getPost('district',FILTER_SANITIZE_STRING);
+			$subdistrict = $this->request->getPost('subdistrict',FILTER_SANITIZE_STRING);
 			$zipcode = $this->request->getPost('zipcode',FILTER_SANITIZE_STRING);
-			$city = $this->request->getPost('city',FILTER_SANITIZE_STRING);
 			$status = $this->request->getPost('status',FILTER_SANITIZE_STRING);
 			$address_1 = $this->request->getPost('address_1',FILTER_SANITIZE_STRING);
 			$address_2 = $this->request->getPost('address_2',FILTER_SANITIZE_STRING);
@@ -2397,10 +2411,13 @@ class Employees extends BaseController {
 				'user_role_id' => $role,
 				'address_1'  => $address_1,
 				'address_2'  => $address_2,
-				'city'  => $city,
+				'subdistrict'  => $subdistrict,
+				'district'  => $district,
 				'state'  => $state,
 				'zipcode' => $zipcode,
 				'gender' => $gender,
+				'user_nid' => $user_nid,
+				'user_passport' => $user_passport,
 				'is_active'  => $status
 			];
 			$result = $UsersModel->update($id, $data);
