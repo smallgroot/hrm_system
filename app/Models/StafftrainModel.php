@@ -3,7 +3,7 @@ namespace App\Models;
 
 use CodeIgniter\Model;
 
-class StaffeducationModel extends Model {
+class StafftrainModel extends Model {
  
     protected $table = 'ci_erp_users_training';
 
