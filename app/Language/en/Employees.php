@@ -163,6 +163,16 @@ return [
 	'xin_document_doe' => 'Expiry Date',
 	'xin_document_type' => 'Document Type',
 	'xin_document_file' => 'Document File',
+	/* Staff Education - Start */ 
+	'xin_staff_edu_info' => 'Education Info',
+	'xin_staff_edu_level' => 'Education Level',
+	'xin_staff_edu_degree' => 'Degree Title',
+	'xin_staff_edu_institution' => 'Institution Name',
+	'xin_staff_edu_start' => 'Degree Start',
+	'xin_staff_edu_end' => 'Degree Completed',
+	'xin_staff_edu_result_type' => 'Result Type',
+	'xin_staff_edu_result' => 'Result',
+	/* Staff Education - End */ 
 	'xin_document_eg_payslip_etc' => 'Eg. Payslip',
 	'xin_add_document' => 'Add Document',
 	'xin_e_details_d_type_file' => "Upload files only: png, jpg, jpeg, gif, txt, pdf, xls, xlsx, doc, docx",

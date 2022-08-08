@@ -1560,6 +1560,96 @@ class Employees extends BaseController {
 			exit;
 		}
 	}
+	// |||add education info||| 
+	public function add_education() {
+			
+		$validation =  \Config\Services::validation();
+		$session = \Config\Services::session();
+		$request = \Config\Services::request();
+		$usession = $session->get('sup_username');
+		if(!$session->has('sup_username')){ 
+			return redirect()->to(site_url('erp/login'));
+		}	
+		if ($this->request->getPost('type') === 'add_record') {
+			$Return = array('result'=>'', 'error'=>'', 'csrf_hash'=>'');
+			$Return['csrf_hash'] = csrf_hash();
+			// set rules
+			$rules = [
+				'document_name' => [
+					'rules'  => 'required',
+					'errors' => [
+						'required' => lang('Main.xin_error_field_text')
+					]
+				],
+				'document_type' => [
+					'rules'  => 'required',
+					'errors' => [
+						'required' => lang('Main.xin_error_field_text')
+					]
+				],
+				'document_file' => [
+					'rules'  => 'uploaded[document_file]|mime_in[document_file,application/pdf,image/jpg,image/jpeg,image/gif,image/png]|max_size[document_file,5120]',
+					'errors' => [
+						'uploaded' => lang('Main.xin_error_field_text'),
+						'mime_in' => 'wrong file size or type'
+					]
+				]
+			];
+			if(!$this->validate($rules)){
+				$ruleErrors = [
+                    "document_name" => $validation->getError('document_name'),
+					"document_type" => $validation->getError('document_type'),
+					"document_file" => $validation->getError('document_file')
+                ];
+				foreach($ruleErrors as $err){
+					$Return['error'] = $err;
+					if($Return['error']!=''){
+						$this->output($Return);
+					}
+				}
+			} else {
+				// upload file
+				$document_file = $this->request->getFile('document_file');
+				$file_name = $document_file->getName();
+				$document_file->move('public/uploads/documents/');
+				
+				$document_name = $this->request->getPost('document_name',FILTER_SANITIZE_STRING);
+				$document_type = $this->request->getPost('document_type',FILTER_SANITIZE_STRING);
+				$id = udecode($this->request->getPost('token',FILTER_SANITIZE_STRING));
+				
+				$UsersModel = new UsersModel();
+				$user_info = $UsersModel->where('user_id', $usession['sup_user_id'])->first();
+				if($user_info['user_type'] == 'staff'){
+					$company_id = $user_info['company_id'];
+				} else {
+					$company_id = $usession['sup_user_id'];
+				}
+				$data = [
+					'company_id' => $company_id,
+					'user_id' => $id,
+					'document_name'  => $document_name,
+					'document_type'  => $document_type,
+					'document_file'  => $file_name,
+					'created_at' => date('d-m-Y h:i:s')
+				];
+				$UserdocumentsModel = new UserdocumentsModel();
+				$result = $UserdocumentsModel->insert($data);	
+				$Return['csrf_hash'] = csrf_hash();	
+				if ($result == TRUE) {
+					$Return['result'] = lang('Success.employee_set_document_success');
+				} else {
+					$Return['error'] = lang('Main.xin_error_msg');
+				}
+				$this->output($Return);
+				exit;
+			}			
+		} else {
+			$Return['error'] = lang('Main.xin_error_msg');
+			$this->output($Return);
+			exit;
+		}
+	}
+
 	// |||add record|||
 	public function add_document() {
 			
