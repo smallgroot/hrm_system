@@ -164,6 +164,7 @@ return [
 	'xin_document_type' => 'Document Type',
 	'xin_document_file' => 'Document File',
 	/* Staff Education - Start */ 
+	'xin_add_education' => 'Add Education',  
 	'xin_staff_edu_info' => 'Education Information',
 	'xin_staff_edu_level' => 'Education Level',
 	'xin_staff_edu_degree' => 'Degree Title',
@@ -174,13 +175,13 @@ return [
 	'xin_staff_edu_result' => 'Result',
 	/* Staff Education - End */ 
 	/* Staff Credential - Start */ 
-	'xin_staff_credential_info' => 'Training/Certification Information',
-	'xin_staff_credential_title' => 'Training/Certification Title',
-	'xin_staff_credential_institution' => 'Institution Name',
-	'xin_staff_credential_year' => 'Degree Start',
-	'xin_staff_credential_end' => 'Degree Completed',
-	'xin_staff_edu_result_type' => 'Result Type',
-	'xin_staff_edu_result' => 'Result',
+	'xin_add_credential' => 'Add Credential', 
+	'xin_staff_credential_info' => 'Credential Information',
+	'xin_staff_credential_type' => 'Credential Type',
+	'xin_staff_credential_title' => 'Credential Title',
+	'xin_staff_credential_issuer' => 'Issuer Name',
+	'xin_staff_credential_from' => 'Issue Date',
+	'xin_staff_credential_end' => 'Expiry Date',
 	/* Staff Credential - End */ 
 	/* Staff Work Experience - Start */ 
 	'xin_staff_edu_info' => 'Education Info',
@@ -190,7 +191,6 @@ return [
 	'xin_staff_edu_start' => 'Degree Start',
 	'xin_staff_edu_end' => 'Degree Completed',
 	'xin_staff_edu_result_type' => 'Result Type',
-	'xin_staff_edu_result' => 'Result',
 	/* Staff Work Experience - End */ 
 	'xin_document_eg_payslip_etc' => 'Eg. Payslip',
 	'xin_add_document' => 'Add Document',

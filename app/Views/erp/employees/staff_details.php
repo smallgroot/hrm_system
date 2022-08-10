@@ -1884,7 +1884,7 @@ $cmodule_attributes = $Moduleattributes->where('company_id',$company_id)->where(
           </div>
           <div class="card-footer text-right">
             <button  type="submit" class="btn btn-primary">
-            <?= lang('Employees.xin_add_document');?>
+            <?= lang('Employees.xin_add_education');?>
             </button>
           </div>
           <?= form_close(); ?>
@@ -1905,11 +1905,11 @@ $cmodule_attributes = $Moduleattributes->where('company_id',$company_id)->where(
               <table class="table table-striped table-bordered dataTable" id="xin_table_document" style="width:100%;">
                 <thead>
                   <tr>
-                    <th><?= lang('Employees.xin_staff_edu_level');?></th>
-                    <th><?= lang('Employees.xin_staff_edu_degree');?></th>
-                    <th><?= lang('Employees.xin_staff_edu_institution');?></th>
-                    <th><?= lang('Employees.xin_staff_edu_start');?></th>
-                    <th><?= lang('Employees.xin_staff_edu_end');?></th>
+                    <th><?= lang('Employees.xin_staff_credential_type');?></th>
+                    <th><?= lang('Employees.xin_staff_credential_title');?></th>
+                    <th><?= lang('Employees.xin_staff_credential_issuer');?></th>
+                    <th><?= lang('Employees.xin_staff_credential_from');?></th>
+                    <th><?= lang('Employees.xin_staff_credential_end');?></th>
                   </tr>
                 </thead>
               </table>
@@ -1918,51 +1918,51 @@ $cmodule_attributes = $Moduleattributes->where('company_id',$company_id)->where(
           <div class="card-header with-elements"> <span class="card-header-title mr-2"> <strong>
             <?= lang('Main.xin_add_new');?>
             </strong>
-            <?= lang('Employees.xin_staff_edu_info');?>
+            <?= lang('Employees.xin_staff_credential_info');?>
             </span> </div>
-          <?php $attributes = array('name' => 'user_education', 'id' => 'user_education', 'autocomplete' => 'off');?>
+          <?php $attributes = array('name' => 'user_credential', 'id' => 'user_credential', 'autocomplete' => 'off');?>
           <?php $hidden = array('token' => $segment_id);?>
           <?= form_open_multipart('erp/employees/add_education', $attributes, $hidden);?>
           <div class="card-body pb-2">
             <div class="row">
               <div class="col-sm-6">
                 <div class="form-group">
-                  <label for="edu_level" class="control-label">
-                    <?= lang('Employees.xin_staff_edu_level');?>
+                  <label for="credential_type" class="control-label">
+                    <?= lang('Employees.xin_staff_credential_type');?>
                     <span class="text-danger">*</span></label>
-                  <input class="form-control" placeholder="<?= lang('Employees.xin_staff_edu_level');?>" name="edu_level" type="text">
+                  <input class="form-control" placeholder="<?= lang('Employees.xin_staff_credential_type');?>" name="credential_type" type="text">
                 </div>
               </div>
               <div class="col-sm-6">
                 <div class="form-group">
-                  <label for="edu_degree" class="control-label">
-                    <?= lang('Employees.xin_staff_edu_degree');?>
+                  <label for="credential_name" class="control-label">
+                    <?= lang('Employees.xin_staff_credential_title');?>
                     <span class="text-danger">*</span></label>
-                  <input class="form-control" placeholder="<?= lang('Employees.xin_staff_edu_degree');?>" name="edu_degree" type="text">
+                  <input class="form-control" placeholder="<?= lang('Employees.xin_staff_credential_title');?>" name="credential_name" type="text">
                 </div>
               </div>
               <div class="col-sm-6">
                 <div class="form-group">
-                  <label for="edu_inst" class="control-label">
-                    <?= lang('Employees.xin_staff_edu_institution');?>
+                  <label for="credential_issuer" class="control-label">
+                    <?= lang('Employees.xin_staff_credential_issuer');?>
                     <span class="text-danger">*</span></label>
-                  <input class="form-control" placeholder="<?= lang('Employees.xin_staff_edu_institution');?>" name="edu_inst" type="text">
+                  <input class="form-control" placeholder="<?= lang('Employees.xin_staff_credential_issuer');?>" name="credential_issuer" type="text">
                 </div>
               </div>
               <div class="col-sm-3">
                 <div class="form-group">
                   <label for="edu_start" class="control-label">
-                    <?= lang('Employees.xin_staff_edu_start');?>
+                    <?= lang('Employees.xin_staff_credential_from');?>
                     <span class="text-danger">*</span></label>
-                  <input class="form-control" placeholder="<?= lang('Employees.xin_staff_edu_start');?>" name="edu_start" type="text">
+                  <input class="form-control" placeholder="<?= lang('Employees.xin_staff_credential_from');?>" name="edu_start" type="text">
                 </div>
               </div>
               <div class="col-sm-3">
                 <div class="form-group">
                   <label for="edu_end" class="control-label">
-                    <?= lang('Employees.xin_staff_edu_end');?>
+                    <?= lang('Employees.xin_staff_credential_end');?>
                     <span class="text-danger">*</span></label>
-                  <input class="form-control" placeholder="<?= lang('Employees.xin_staff_edu_end');?>" name="edu_end" type="text">
+                  <input class="form-control" placeholder="<?= lang('Employees.xin_staff_credential_end');?>" name="edu_end" type="text">
                 </div>
               </div>
               <div class="col-sm-6">
@@ -1971,14 +1971,6 @@ $cmodule_attributes = $Moduleattributes->where('company_id',$company_id)->where(
                     <?= lang('Employees.xin_staff_edu_result_type');?>
                     <span class="text-danger">*</span></label>
                   <input class="form-control" placeholder="<?= lang('Employees.xin_staff_edu_result_type');?>" name="document_name" type="text">
-                </div>
-              </div>
-              <div class="col-sm-6">
-                <div class="form-group">
-                  <label for="date_of_expiry" class="control-label">
-                    <?= lang('Employees.xin_staff_edu_result');?>
-                    <span class="text-danger">*</span></label>
-                  <input class="form-control" placeholder="<?= lang('Employees.xin_staff_edu_result');?>" name="document_name" type="text">
                 </div>
               </div>
             </div>
@@ -2002,7 +1994,7 @@ $cmodule_attributes = $Moduleattributes->where('company_id',$company_id)->where(
           </div>
           <div class="card-footer text-right">
             <button  type="submit" class="btn btn-primary">
-            <?= lang('Employees.xin_add_document');?>
+            <?= lang('Employees.xin_add_credential');?>
             </button>
           </div>
           <?= form_close(); ?>

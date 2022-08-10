@@ -10,7 +10,7 @@ class StafftrainModel extends Model {
     protected $primaryKey = 'credential_id';
     
 	// get all fields of employees details table
-    protected $allowedFields = ['credential_id','user_id', 'credential_type', 'credential_name','credential_provider','credential_from',' credential_expiry'];
+    protected $allowedFields = ['credential_id','user_id', 'credential_type', 'credential_name','credential_issuer','credential_from',' credential_expiry'];
 	
 	protected $validationRules = [];
 	protected $validationMessages = [];
