@@ -164,7 +164,7 @@ return [
 	'xin_document_type' => 'Document Type',
 	'xin_document_file' => 'Document File',
 	/* Staff Education - Start */ 
-	'xin_staff_edu_info' => 'Education Info',
+	'xin_staff_edu_info' => 'Education Information',
 	'xin_staff_edu_level' => 'Education Level',
 	'xin_staff_edu_degree' => 'Degree Title',
 	'xin_staff_edu_institution' => 'Institution Name',
@@ -173,6 +173,25 @@ return [
 	'xin_staff_edu_result_type' => 'Result Type',
 	'xin_staff_edu_result' => 'Result',
 	/* Staff Education - End */ 
+	/* Staff Credential - Start */ 
+	'xin_staff_credential_info' => 'Training/Certification Information',
+	'xin_staff_credential_title' => 'Training/Certification Title',
+	'xin_staff_credential_institution' => 'Institution Name',
+	'xin_staff_credential_year' => 'Degree Start',
+	'xin_staff_credential_end' => 'Degree Completed',
+	'xin_staff_edu_result_type' => 'Result Type',
+	'xin_staff_edu_result' => 'Result',
+	/* Staff Credential - End */ 
+	/* Staff Work Experience - Start */ 
+	'xin_staff_edu_info' => 'Education Info',
+	'xin_staff_edu_level' => 'Education Level',
+	'xin_staff_edu_degree' => 'Degree Title',
+	'xin_staff_edu_institution' => 'Institution Name',
+	'xin_staff_edu_start' => 'Degree Start',
+	'xin_staff_edu_end' => 'Degree Completed',
+	'xin_staff_edu_result_type' => 'Result Type',
+	'xin_staff_edu_result' => 'Result',
+	/* Staff Work Experience - End */ 
 	'xin_document_eg_payslip_etc' => 'Eg. Payslip',
 	'xin_add_document' => 'Add Document',
 	'xin_e_details_d_type_file' => "Upload files only: png, jpg, jpeg, gif, txt, pdf, xls, xlsx, doc, docx",

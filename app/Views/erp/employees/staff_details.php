@@ -170,6 +170,10 @@ $cmodule_attributes = $Moduleattributes->where('company_id',$company_id)->where(
         <?= lang('Education Information');?>
         </span> <span class="float-right"><i class="feather icon-chevron-right"></i></span> </a>         
         
+        <a class="nav-link list-group-item list-group-item-action" id="user-set-credential-tab" data-toggle="pill" href="#user-set-credential" role="tab" aria-controls="user-set-credential" aria-selected="false"> <span class="f-w-500"><i class="feather icon-briefcase m-r-10 h5 "></i>
+        <?= lang('Credential Information');?>
+        </span> <span class="float-right"><i class="feather icon-chevron-right"></i></span> </a>          
+        
         <a class="nav-link list-group-item list-group-item-action" id="user-set-experience-tab" data-toggle="pill" href="#user-set-experience" role="tab" aria-controls="user-set-experience" aria-selected="false"> <span class="f-w-500"><i class="feather icon-briefcase m-r-10 h5 "></i>
         <?= lang('Work Experience Information');?>
         </span> <span class="float-right"><i class="feather icon-chevron-right"></i></span> </a> 
@@ -1769,7 +1773,7 @@ $cmodule_attributes = $Moduleattributes->where('company_id',$company_id)->where(
         <div class="card user-profile-list">
           <div class="card-header">
             <h5><i data-feather="file-plus" class="icon-svg-primary wid-20"></i><span class="p-l-5">
-              <?= lang('Employees.xin_documents');?>
+              <?= lang('Employees.xin_staff_edu_info');?>
               </span></h5>
           </div>
           <div class="card-body">
@@ -1888,7 +1892,125 @@ $cmodule_attributes = $Moduleattributes->where('company_id',$company_id)->where(
       </div>
       <!-- user education info - end -->
 
-      <!-- user work experience info - start -->
+      <!-- user credential info - start -->
+      <div class="tab-pane fade" id="user-set-credential" role="tabpanel" aria-labelledby="user-set-credential-tab">
+        <div class="card user-profile-list">
+          <div class="card-header">
+            <h5><i data-feather="file-plus" class="icon-svg-primary wid-20"></i><span class="p-l-5">
+              <?= lang('Employees.xin_staff_credential_info');?>
+              </span></h5>
+          </div>
+          <div class="card-body">
+            <div class="box-datatable table-responsive">
+              <table class="table table-striped table-bordered dataTable" id="xin_table_document" style="width:100%;">
+                <thead>
+                  <tr>
+                    <th><?= lang('Employees.xin_staff_edu_level');?></th>
+                    <th><?= lang('Employees.xin_staff_edu_degree');?></th>
+                    <th><?= lang('Employees.xin_staff_edu_institution');?></th>
+                    <th><?= lang('Employees.xin_staff_edu_start');?></th>
+                    <th><?= lang('Employees.xin_staff_edu_end');?></th>
+                  </tr>
+                </thead>
+              </table>
+            </div>
+          </div>
+          <div class="card-header with-elements"> <span class="card-header-title mr-2"> <strong>
+            <?= lang('Main.xin_add_new');?>
+            </strong>
+            <?= lang('Employees.xin_staff_edu_info');?>
+            </span> </div>
+          <?php $attributes = array('name' => 'user_education', 'id' => 'user_education', 'autocomplete' => 'off');?>
+          <?php $hidden = array('token' => $segment_id);?>
+          <?= form_open_multipart('erp/employees/add_education', $attributes, $hidden);?>
+          <div class="card-body pb-2">
+            <div class="row">
+              <div class="col-sm-6">
+                <div class="form-group">
+                  <label for="edu_level" class="control-label">
+                    <?= lang('Employees.xin_staff_edu_level');?>
+                    <span class="text-danger">*</span></label>
+                  <input class="form-control" placeholder="<?= lang('Employees.xin_staff_edu_level');?>" name="edu_level" type="text">
+                </div>
+              </div>
+              <div class="col-sm-6">
+                <div class="form-group">
+                  <label for="edu_degree" class="control-label">
+                    <?= lang('Employees.xin_staff_edu_degree');?>
+                    <span class="text-danger">*</span></label>
+                  <input class="form-control" placeholder="<?= lang('Employees.xin_staff_edu_degree');?>" name="edu_degree" type="text">
+                </div>
+              </div>
+              <div class="col-sm-6">
+                <div class="form-group">
+                  <label for="edu_inst" class="control-label">
+                    <?= lang('Employees.xin_staff_edu_institution');?>
+                    <span class="text-danger">*</span></label>
+                  <input class="form-control" placeholder="<?= lang('Employees.xin_staff_edu_institution');?>" name="edu_inst" type="text">
+                </div>
+              </div>
+              <div class="col-sm-3">
+                <div class="form-group">
+                  <label for="edu_start" class="control-label">
+                    <?= lang('Employees.xin_staff_edu_start');?>
+                    <span class="text-danger">*</span></label>
+                  <input class="form-control" placeholder="<?= lang('Employees.xin_staff_edu_start');?>" name="edu_start" type="text">
+                </div>
+              </div>
+              <div class="col-sm-3">
+                <div class="form-group">
+                  <label for="edu_end" class="control-label">
+                    <?= lang('Employees.xin_staff_edu_end');?>
+                    <span class="text-danger">*</span></label>
+                  <input class="form-control" placeholder="<?= lang('Employees.xin_staff_edu_end');?>" name="edu_end" type="text">
+                </div>
+              </div>
+              <div class="col-sm-6">
+                <div class="form-group">
+                  <label for="date_of_expiry" class="control-label">
+                    <?= lang('Employees.xin_staff_edu_result_type');?>
+                    <span class="text-danger">*</span></label>
+                  <input class="form-control" placeholder="<?= lang('Employees.xin_staff_edu_result_type');?>" name="document_name" type="text">
+                </div>
+              </div>
+              <div class="col-sm-6">
+                <div class="form-group">
+                  <label for="date_of_expiry" class="control-label">
+                    <?= lang('Employees.xin_staff_edu_result');?>
+                    <span class="text-danger">*</span></label>
+                  <input class="form-control" placeholder="<?= lang('Employees.xin_staff_edu_result');?>" name="document_name" type="text">
+                </div>
+              </div>
+            </div>
+            <!-- <div class="row">
+              <div class="col-sm-12">
+                <div class="form-group">
+                  <label for="logo">
+                    <?= lang('Employees.xin_document_file');?>
+                    <span class="text-danger">*</span> </label>
+                  <div class="custom-file">
+                    <input type="file" class="custom-file-input" name="document_file">
+                    <label class="custom-file-label">
+                      <?= lang('Main.xin_choose_file');?>
+                    </label>
+                    <small>
+                    <?= lang('Employees.xin_e_details_d_type_file');?>
+                    </small> </div>
+                </div>
+              </div>
+            </div> -->
+          </div>
+          <div class="card-footer text-right">
+            <button  type="submit" class="btn btn-primary">
+            <?= lang('Employees.xin_add_document');?>
+            </button>
+          </div>
+          <?= form_close(); ?>
+        </div>
+      </div>
+      <!-- user credential info - end -->
+
+      <!-- user experience info - start -->
       <div class="tab-pane fade" id="user-set-experience" role="tabpanel" aria-labelledby="user-set-experience-tab">
         <div class="card">
           <div class="card-header">
@@ -1900,7 +2022,7 @@ $cmodule_attributes = $Moduleattributes->where('company_id',$company_id)->where(
         </div>
 
       </div>
-      <!-- user work experience info - end -->
+      <!-- user training/certification info - end -->
 
 
       <?php if(in_array('staff4',staff_role_resource()) || $user_info['user_type'] == 'company') { ?>
