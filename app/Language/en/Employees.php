@@ -183,14 +183,15 @@ return [
 	'xin_staff_credential_from' => 'Issue Date',
 	'xin_staff_credential_end' => 'Expiry Date',
 	/* Staff Credential - End */ 
-	/* Staff Work Experience - Start */ 
-	'xin_staff_edu_info' => 'Education Info',
-	'xin_staff_edu_level' => 'Education Level',
-	'xin_staff_edu_degree' => 'Degree Title',
-	'xin_staff_edu_institution' => 'Institution Name',
-	'xin_staff_edu_start' => 'Degree Start',
-	'xin_staff_edu_end' => 'Degree Completed',
-	'xin_staff_edu_result_type' => 'Result Type',
+	/* Staff Employment - Start */ 
+	'xin_add_employment' => 'Add Employment', 
+	'xin_staff_employment_info' => 'Employment Information',
+	'xin_staff_employment_type' => 'Employment Type',
+	'xin_staff_employment_title' => 'Employment Level',
+	'xin_staff_experience_degree' => 'Degree Title',
+	'xin_staff_experience_institution' => 'Institution Name',
+	'xin_staff_experience_start' => 'Degree Start',
+	'xin_staff_experience_end' => 'Degree Completed',
 	/* Staff Work Experience - End */ 
 	'xin_document_eg_payslip_etc' => 'Eg. Payslip',
 	'xin_add_document' => 'Add Document',
