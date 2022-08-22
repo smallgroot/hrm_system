@@ -182,17 +182,19 @@ return [
 	'xin_staff_credential_issuer' => 'Issuer Name',
 	'xin_staff_credential_from' => 'Issue Date',
 	'xin_staff_credential_end' => 'Expiry Date',
+	'xin_staff_credential_noexpiry' => 'No Expiry Date',
 	/* Staff Credential - End */ 
 	/* Staff Employment - Start */ 
 	'xin_add_employment' => 'Add Employment', 
 	'xin_staff_employment_info' => 'Employment Information',
 	'xin_staff_employment_type' => 'Employment Type',
-	'xin_staff_employment_title' => 'Employment Level',
-	'xin_staff_experience_degree' => 'Degree Title',
-	'xin_staff_experience_institution' => 'Institution Name',
-	'xin_staff_experience_start' => 'Degree Start',
-	'xin_staff_experience_end' => 'Degree Completed',
-	/* Staff Work Experience - End */ 
+	'xin_staff_employer_name' => 'Employer Name',
+	'xin_staff_employment_title' => 'Designation',
+	'xin_staff_employment_location' => 'Employment Location',
+	'xin_staff_employment_start' => 'Start Date',
+	'xin_staff_employment_end' => 'End Date',
+	'xin_staff_employment_current' => 'Current',
+	/* Staff Employment - End */ 
 	'xin_document_eg_payslip_etc' => 'Eg. Payslip',
 	'xin_add_document' => 'Add Document',
 	'xin_e_details_d_type_file' => "Upload files only: png, jpg, jpeg, gif, txt, pdf, xls, xlsx, doc, docx",

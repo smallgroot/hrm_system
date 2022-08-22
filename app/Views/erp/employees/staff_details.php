@@ -1781,11 +1781,6 @@ $cmodule_attributes = $Moduleattributes->where('company_id',$company_id)->where(
               <table class="table table-striped table-bordered dataTable" id="xin_table_document" style="width:100%;">
                 <thead>
                   <tr>
-                    <!--
-                    <th><?= lang('Employees.xin_document_name');?></th>
-                    <th><?= lang('Employees.xin_document_type');?></th>
-                    <th><?= lang('Employees.xin_document_file');?></th>
-                    -->
                     <th><?= lang('Employees.xin_staff_edu_level');?></th>
                     <th><?= lang('Employees.xin_staff_edu_degree');?></th>
                     <th><?= lang('Employees.xin_staff_edu_institution');?></th>
@@ -1812,7 +1807,19 @@ $cmodule_attributes = $Moduleattributes->where('company_id',$company_id)->where(
                   <label for="edu_level" class="control-label">
                     <?= lang('Employees.xin_staff_edu_level');?>
                     <span class="text-danger">*</span></label>
-                  <input class="form-control" placeholder="<?= lang('Employees.xin_staff_edu_level');?>" name="edu_level" type="text">
+                  <!-- <input class="form-control" placeholder="<?= lang('Employees.xin_staff_edu_level');?>" name="edu_level" type="text"> -->
+                  
+                  <select class="form-control" name="education_type" data-plugin="select_hrm" data-placeholder="<?= lang('Employees.xin_blood_group');?>">
+                    <option value=""></option>
+                    <option value="Primary" selected="selected">Primary</option>
+                    <option value="Secondary" selected="selected">Secondary</option>
+                    <option value="Higher Secondary" selected="selected">Higher Secondary</option>
+                    <option value="Diploma" selected="selected">Diploma</option>
+                    <option value="Graduation" selected="selected">Graduation</option>
+                    <option value="Post Graduation" selected="selected">Post Graduation</option>
+                    <option value="Doctorate" selected="selected">Doctorate</option>
+                    <option value="Post Doctorate" selected="selected">Post Doctorate</option>
+                  </select>
                 </div>
               </div>
               <div class="col-sm-6">
@@ -1836,7 +1843,11 @@ $cmodule_attributes = $Moduleattributes->where('company_id',$company_id)->where(
                   <label for="edu_start" class="control-label">
                     <?= lang('Employees.xin_staff_edu_start');?>
                     <span class="text-danger">*</span></label>
-                  <input class="form-control" placeholder="<?= lang('Employees.xin_staff_edu_start');?>" name="edu_start" type="text">
+                  <!-- <input class="form-control" placeholder="<?= lang('Employees.xin_staff_edu_start');?>" name="edu_start" type="text"> -->
+                  <div class="input-group">
+                    <input type="text" class="form-control date" name="edu_start" placeholder="Start Date" value="">
+                    <div class="input-group-append"><span class="input-group-text"><i class="fas fa-calendar-alt"></i></span></div>
+                  </div>
                 </div>
               </div>
               <div class="col-sm-3">
@@ -1844,7 +1855,11 @@ $cmodule_attributes = $Moduleattributes->where('company_id',$company_id)->where(
                   <label for="edu_end" class="control-label">
                     <?= lang('Employees.xin_staff_edu_end');?>
                     <span class="text-danger">*</span></label>
-                  <input class="form-control" placeholder="<?= lang('Employees.xin_staff_edu_end');?>" name="edu_end" type="text">
+                  <!-- <input class="form-control" placeholder="<?= lang('Employees.xin_staff_edu_end');?>" name="edu_end" type="text"> -->
+                  <div class="input-group">
+                    <input type="text" class="form-control date" name="edu_end" placeholder="End Date" value="">
+                    <div class="input-group-append"><span class="input-group-text"><i class="fas fa-calendar-alt"></i></span></div>
+                  </div>
                 </div>
               </div>
               <div class="col-sm-6">
@@ -1930,7 +1945,13 @@ $cmodule_attributes = $Moduleattributes->where('company_id',$company_id)->where(
                   <label for="credential_type" class="control-label">
                     <?= lang('Employees.xin_staff_credential_type');?>
                     <span class="text-danger">*</span></label>
-                  <input class="form-control" placeholder="<?= lang('Employees.xin_staff_credential_type');?>" name="credential_type" type="text">
+                  <!-- <input class="form-control" placeholder="<?= lang('Employees.xin_staff_credential_type');?>" name="credential_type" type="text"> -->
+                  <select class="form-control" name="credential_type" data-plugin="select_hrm" data-placeholder="<?= lang('Employees.xin_staff_credential_type');?>">
+                    <option value=""></option>
+                    <option value="Training" selected="selected">Training</option>
+                    <option value="Certification" selected="selected">Certification</option>
+                    <option value="License" selected="selected">License</option>
+                  </select>
                 </div>
               </div>
               <div class="col-sm-6">
@@ -1951,18 +1972,26 @@ $cmodule_attributes = $Moduleattributes->where('company_id',$company_id)->where(
               </div>
               <div class="col-sm-3">
                 <div class="form-group">
-                  <label for="edu_start" class="control-label">
+                  <label for="credential_start" class="control-label">
                     <?= lang('Employees.xin_staff_credential_from');?>
                     <span class="text-danger">*</span></label>
-                  <input class="form-control" placeholder="<?= lang('Employees.xin_staff_credential_from');?>" name="edu_start" type="text">
+                  <!-- <input class="form-control" placeholder="<?= lang('Employees.xin_staff_credential_from');?>" name="edu_start" type="text"> -->
+                  <div class="input-group">
+                    <input type="text" class="form-control date" name="credential_start" placeholder="Issue Date" value="">
+                    <div class="input-group-append"><span class="input-group-text"><i class="fas fa-calendar-alt"></i></span></div>
+                  </div>
                 </div>
               </div>
               <div class="col-sm-3">
                 <div class="form-group">
-                  <label for="edu_end" class="control-label">
+                  <label for="credential_end" class="control-label">
                     <?= lang('Employees.xin_staff_credential_end');?>
                     <span class="text-danger">*</span></label>
-                  <input class="form-control" placeholder="<?= lang('Employees.xin_staff_credential_end');?>" name="edu_end" type="text">
+                  <!-- <input class="form-control" placeholder="<?= lang('Employees.xin_staff_credential_end');?>" name="edu_end" type="text"> -->
+                  <div class="input-group">
+                    <input type="text" class="form-control date" name="credential_end" placeholder="Expiry Date" value="">
+                    <div class="input-group-append"><span class="input-group-text"><i class="fas fa-calendar-alt"></i></span></div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -2007,11 +2036,12 @@ $cmodule_attributes = $Moduleattributes->where('company_id',$company_id)->where(
               <table class="table table-striped table-bordered dataTable" id="xin_table_document" style="width:100%;">
                 <thead>
                   <tr>
-                    <th><?= lang('Employees.xin_staff_credential_type');?></th>
-                    <th><?= lang('Employees.xin_staff_credential_title');?></th>
-                    <th><?= lang('Employees.xin_staff_credential_issuer');?></th>
-                    <th><?= lang('Employees.xin_staff_credential_from');?></th>
-                    <th><?= lang('Employees.xin_staff_credential_end');?></th>
+                    <th><?= lang('Employees.xin_staff_employment_type');?></th>
+                    <th><?= lang('Employees.xin_staff_employer_name');?></th>
+                    <th><?= lang('Employees.xin_staff_employment_title');?></th>
+                    <th><?= lang('Employees.xin_staff_employment_location');?></th>
+                    <th><?= lang('Employees.xin_staff_employment_start');?></th>
+                    <th><?= lang('Employees.xin_staff_employment_end');?></th>
                   </tr>
                 </thead>
               </table>
@@ -2022,49 +2052,73 @@ $cmodule_attributes = $Moduleattributes->where('company_id',$company_id)->where(
             </strong>
             <?= lang('Employees.xin_staff_employment_info');?>
             </span> </div>
-          <?php $attributes = array('name' => 'user_credential', 'id' => 'user_credential', 'autocomplete' => 'off');?>
+          <?php $attributes = array('name' => 'user_employment', 'id' => 'user_employment', 'autocomplete' => 'off');?>
           <?php $hidden = array('token' => $segment_id);?>
-          <?= form_open_multipart('erp/employees/add_education', $attributes, $hidden);?>
+          <?= form_open_multipart('erp/employees/add_employment', $attributes, $hidden);?>
           <div class="card-body pb-2">
             <div class="row">
               <div class="col-sm-6">
                 <div class="form-group">
-                  <label for="credential_type" class="control-label">
-                    <?= lang('Employees.xin_staff_credential_type');?>
+                  <label for="employment_type" class="control-label">
+                    <?= lang('Employees.xin_staff_employment_type');?>
                     <span class="text-danger">*</span></label>
-                  <input class="form-control" placeholder="<?= lang('Employees.xin_staff_credential_type');?>" name="credential_type" type="text">
+                  <!-- <input class="form-control" placeholder="<?= lang('Employees.xin_staff_employment_type');?>" name="credential_type" type="text"> -->
+                  <select class="form-control" name="credential_tyemployment_typepe" data-plugin="select_hrm" data-placeholder="<?= lang('Employees.xin_staff_employment_type');?>">
+                    <option value=""></option>
+                    <option value="Internship" selected="selected">Internship</option>
+                    <option value="Freelance/Independent Consultancy" selected="selected">Freelance / Independent Consultancy</option>
+                    <option value="Contractual" selected="selected">Contractual</option>
+                    <option value="Part-time" selected="selected">Part-time</option>
+                    <option value="Full-time" selected="selected">Full-time</option>
+                  </select>
+                </div>
+              </div>
+              <div class="col-sm-6">
+                <div class="form-group">
+                  <label for="credential_type" class="control-label">
+                    <?= lang('Employees.xin_staff_employer_name');?>
+                    <span class="text-danger">*</span></label>
+                  <input class="form-control" placeholder="<?= lang('Employees.xin_staff_employer_name');?>" name="credential_type" type="text">
                 </div>
               </div>
               <div class="col-sm-6">
                 <div class="form-group">
                   <label for="credential_name" class="control-label">
-                    <?= lang('Employees.xin_staff_credential_title');?>
+                    <?= lang('Employees.xin_staff_employment_title');?>
                     <span class="text-danger">*</span></label>
-                  <input class="form-control" placeholder="<?= lang('Employees.xin_staff_credential_title');?>" name="credential_name" type="text">
+                  <input class="form-control" placeholder="<?= lang('Employees.xin_staff_employment_title');?>" name="credential_name" type="text">
                 </div>
               </div>
               <div class="col-sm-6">
                 <div class="form-group">
                   <label for="credential_issuer" class="control-label">
-                    <?= lang('Employees.xin_staff_credential_issuer');?>
+                    <?= lang('Employees.xin_staff_employment_location');?>
                     <span class="text-danger">*</span></label>
-                  <input class="form-control" placeholder="<?= lang('Employees.xin_staff_credential_issuer');?>" name="credential_issuer" type="text">
+                  <input class="form-control" placeholder="<?= lang('Employees.xin_staff_employment_location');?>" name="credential_issuer" type="text">
                 </div>
               </div>
               <div class="col-sm-3">
                 <div class="form-group">
-                  <label for="edu_start" class="control-label">
-                    <?= lang('Employees.xin_staff_credential_from');?>
+                  <label for="employment_start" class="control-label">
+                    <?= lang('Employees.xin_staff_employment_start');?>
                     <span class="text-danger">*</span></label>
-                  <input class="form-control" placeholder="<?= lang('Employees.xin_staff_credential_from');?>" name="edu_start" type="text">
+                  <!-- <input class="form-control" placeholder="<?= lang('Employees.xin_staff_employment_start');?>" name="edu_start" type="text"> -->
+                  <div class="input-group">
+                    <input type="text" class="form-control date" name="credential_start" placeholder="Start Date" value="">
+                    <div class="input-group-append"><span class="input-group-text"><i class="fas fa-calendar-alt"></i></span></div>
+                  </div>
                 </div>
               </div>
               <div class="col-sm-3">
                 <div class="form-group">
-                  <label for="edu_end" class="control-label">
-                    <?= lang('Employees.xin_staff_credential_end');?>
+                  <label for="employment_end" class="control-label">
+                    <?= lang('Employees.xin_staff_employment_end');?>
                     <span class="text-danger">*</span></label>
-                  <input class="form-control" placeholder="<?= lang('Employees.xin_staff_credential_end');?>" name="edu_end" type="text">
+                  <!-- <input class="form-control" placeholder="<?= lang('Employees.xin_staff_employment_end');?>" name="edu_end" type="text"> -->
+                  <div class="input-group">
+                    <input type="text" class="form-control date" name="credential_start" placeholder="End Date" value="">
+                    <div class="input-group-append"><span class="input-group-text"><i class="fas fa-calendar-alt"></i></span></div>
+                  </div>
                 </div>
               </div>
             </div>
