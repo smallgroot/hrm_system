@@ -1817,6 +1817,7 @@ $cmodule_attributes = $Moduleattributes->where('company_id',$company_id)->where(
                     <option value="Diploma" selected="selected">Diploma</option>
                     <option value="Graduation" selected="selected">Graduation</option>
                     <option value="Post Graduation" selected="selected">Post Graduation</option>
+                    <option value="Post Graduation Diploma" selected="selected">Post Graduation Diploma</option>
                     <option value="Doctoral" selected="selected">Doctoral</option>
                     <option value="Post Doctoral" selected="selected">Post Doctoral</option>
                   </select>
@@ -2097,7 +2098,7 @@ $cmodule_attributes = $Moduleattributes->where('company_id',$company_id)->where(
                   <input class="form-control" placeholder="<?= lang('Employees.xin_staff_employment_location');?>" name="credential_issuer" type="text">
                 </div>
               </div>
-              <div class="col-sm-3">
+              <div class="col-sm-4">
                 <div class="form-group">
                   <label for="employment_start" class="control-label">
                     <?= lang('Employees.xin_staff_employment_start');?>
@@ -2109,7 +2110,7 @@ $cmodule_attributes = $Moduleattributes->where('company_id',$company_id)->where(
                   </div>
                 </div>
               </div>
-              <div class="col-sm-3">
+              <div class="col-sm-4">
                 <div class="form-group">
                   <label for="employment_end" class="control-label">
                     <?= lang('Employees.xin_staff_employment_end');?>
