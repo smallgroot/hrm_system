@@ -1817,8 +1817,8 @@ $cmodule_attributes = $Moduleattributes->where('company_id',$company_id)->where(
                     <option value="Diploma" selected="selected">Diploma</option>
                     <option value="Graduation" selected="selected">Graduation</option>
                     <option value="Post Graduation" selected="selected">Post Graduation</option>
-                    <option value="Doctorate" selected="selected">Doctorate</option>
-                    <option value="Post Doctorate" selected="selected">Post Doctorate</option>
+                    <option value="Doctoral" selected="selected">Doctoral</option>
+                    <option value="Post Doctoral" selected="selected">Post Doctoral</option>
                   </select>
                 </div>
               </div>
@@ -2075,18 +2075,18 @@ $cmodule_attributes = $Moduleattributes->where('company_id',$company_id)->where(
               </div>
               <div class="col-sm-6">
                 <div class="form-group">
-                  <label for="credential_type" class="control-label">
-                    <?= lang('Employees.xin_staff_employer_name');?>
-                    <span class="text-danger">*</span></label>
-                  <input class="form-control" placeholder="<?= lang('Employees.xin_staff_employer_name');?>" name="credential_type" type="text">
-                </div>
-              </div>
-              <div class="col-sm-6">
-                <div class="form-group">
                   <label for="credential_name" class="control-label">
                     <?= lang('Employees.xin_staff_employment_title');?>
                     <span class="text-danger">*</span></label>
                   <input class="form-control" placeholder="<?= lang('Employees.xin_staff_employment_title');?>" name="credential_name" type="text">
+                </div>
+              </div>
+              <div class="col-sm-6">
+                <div class="form-group">
+                  <label for="credential_type" class="control-label">
+                    <?= lang('Employees.xin_staff_employer_name');?>
+                    <span class="text-danger">*</span></label>
+                  <input class="form-control" placeholder="<?= lang('Employees.xin_staff_employer_name');?>" name="credential_type" type="text">
                 </div>
               </div>
               <div class="col-sm-6">
