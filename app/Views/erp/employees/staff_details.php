@@ -2111,7 +2111,7 @@ $cmodule_attributes = $Moduleattributes->where('company_id',$company_id)->where(
                   <label for="credential_issuer" class="control-label">
                     <?= lang('Employees.xin_staff_employment_location');?>
                     <span class="text-danger">*</span></label>
-                  <input class="form-control" placeholder="<?= lang('Employees.xin_staff_employment_location');?>  (i.e.; Dhaka, Bangladesh)" name="credential_issuer" type="text">
+                  <input class="form-control" placeholder="i.e.; Dhaka, Bangladesh" name="credential_issuer" type="text">
                 </div>
               </div>
               <div class="col-sm-4">
