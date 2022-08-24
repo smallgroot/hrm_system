@@ -1865,18 +1865,23 @@ $cmodule_attributes = $Moduleattributes->where('company_id',$company_id)->where(
               </div>
               <div class="col-sm-6">
                 <div class="form-group">
-                  <label for="date_of_expiry" class="control-label">
+                  <label for="result_type" class="control-label">
                     <?= lang('Employees.xin_staff_edu_result_type');?>
                     <span class="text-danger">*</span></label>
-                  <input class="form-control" placeholder="<?= lang('Employees.xin_staff_edu_result_type');?>" name="document_name" type="text">
+                  <!-- <input class="form-control" placeholder="<?= lang('Employees.xin_staff_edu_result_type');?>" name="document_name" type="text"> -->
+                  <select class="form-control" name="result_type" data-plugin="select_hrm" data-placeholder="<?= lang('Employees.xin_staff_employment_type');?>">
+                    <option value=""></option>
+                    <option value="Division" selected="selected">Division</option>
+                    <option value="CGPA" selected="selected">CGPA</option>
+                  </select>
                 </div>
               </div>
               <div class="col-sm-6">
                 <div class="form-group">
-                  <label for="date_of_expiry" class="control-label">
+                  <label for="edu_result" class="control-label">
                     <?= lang('Employees.xin_staff_edu_result');?>
                     <span class="text-danger">*</span></label>
-                  <input class="form-control" placeholder="<?= lang('Employees.xin_staff_edu_result');?>" name="document_name" type="text">
+                  <input class="form-control" placeholder="<?= lang('Employees.xin_staff_edu_result');?> (i.e., A+, A-, 1st Division, etc.)" name="edu_result" type="text">
                 </div>
               </div>
             </div>
@@ -1941,7 +1946,7 @@ $cmodule_attributes = $Moduleattributes->where('company_id',$company_id)->where(
           <?= form_open_multipart('erp/employees/add_education', $attributes, $hidden);?>
           <div class="card-body pb-2">
             <div class="row">
-              <div class="col-sm-6">
+              <div class="col-sm-4">
                 <div class="form-group">
                   <label for="credential_type" class="control-label">
                     <?= lang('Employees.xin_staff_credential_type');?>
@@ -1955,7 +1960,7 @@ $cmodule_attributes = $Moduleattributes->where('company_id',$company_id)->where(
                   </select>
                 </div>
               </div>
-              <div class="col-sm-6">
+              <div class="col-sm-4">
                 <div class="form-group">
                   <label for="credential_name" class="control-label">
                     <?= lang('Employees.xin_staff_credential_title');?>
@@ -1963,7 +1968,7 @@ $cmodule_attributes = $Moduleattributes->where('company_id',$company_id)->where(
                   <input class="form-control" placeholder="<?= lang('Employees.xin_staff_credential_title');?>" name="credential_name" type="text">
                 </div>
               </div>
-              <div class="col-sm-6">
+              <div class="col-sm-4">
                 <div class="form-group">
                   <label for="credential_issuer" class="control-label">
                     <?= lang('Employees.xin_staff_credential_issuer');?>
@@ -1971,7 +1976,7 @@ $cmodule_attributes = $Moduleattributes->where('company_id',$company_id)->where(
                   <input class="form-control" placeholder="<?= lang('Employees.xin_staff_credential_issuer');?>" name="credential_issuer" type="text">
                 </div>
               </div>
-              <div class="col-sm-3">
+              <div class="col-sm-4">
                 <div class="form-group">
                   <label for="credential_start" class="control-label">
                     <?= lang('Employees.xin_staff_credential_from');?>
@@ -1983,15 +1988,27 @@ $cmodule_attributes = $Moduleattributes->where('company_id',$company_id)->where(
                   </div>
                 </div>
               </div>
-              <div class="col-sm-3">
+              <div class="col-sm-4">
                 <div class="form-group">
-                  <label for="credential_end" class="control-label">
+                  <label for="credential_expiry" class="control-label">
                     <?= lang('Employees.xin_staff_credential_end');?>
                     <span class="text-danger">*</span></label>
                   <!-- <input class="form-control" placeholder="<?= lang('Employees.xin_staff_credential_end');?>" name="edu_end" type="text"> -->
                   <div class="input-group">
-                    <input type="text" class="form-control date" name="credential_end" placeholder="Expiry Date" value="">
+                    <input type="text" class="form-control date" name="credential_expiry" placeholder="Expiry Date" value="">
                     <div class="input-group-append"><span class="input-group-text"><i class="fas fa-calendar-alt"></i></span></div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="form-group">
+                  <div class="custom-control custom-switch">
+                    <input type="checkbox" class="custom-control-input input-primary" name="leave_half_day" id="leave_half_day" value="1">
+                    <label class="custom-control-label" for="leave_half_day">
+                      No Expiry Date
+                    </label>
+                  </div>
+                  <div>                    
                   </div>
                 </div>
               </div>
@@ -2040,7 +2057,6 @@ $cmodule_attributes = $Moduleattributes->where('company_id',$company_id)->where(
                     <th><?= lang('Employees.xin_staff_employment_type');?></th>
                     <th><?= lang('Employees.xin_staff_employer_name');?></th>
                     <th><?= lang('Employees.xin_staff_employment_title');?></th>
-                    <th><?= lang('Employees.xin_staff_employment_location');?></th>
                     <th><?= lang('Employees.xin_staff_employment_start');?></th>
                     <th><?= lang('Employees.xin_staff_employment_end');?></th>
                   </tr>
@@ -2058,7 +2074,7 @@ $cmodule_attributes = $Moduleattributes->where('company_id',$company_id)->where(
           <?= form_open_multipart('erp/employees/add_employment', $attributes, $hidden);?>
           <div class="card-body pb-2">
             <div class="row">
-              <div class="col-sm-6">
+              <div class="col-sm-4">
                 <div class="form-group">
                   <label for="employment_type" class="control-label">
                     <?= lang('Employees.xin_staff_employment_type');?>
@@ -2074,7 +2090,7 @@ $cmodule_attributes = $Moduleattributes->where('company_id',$company_id)->where(
                   </select>
                 </div>
               </div>
-              <div class="col-sm-6">
+              <div class="col-sm-4">
                 <div class="form-group">
                   <label for="credential_name" class="control-label">
                     <?= lang('Employees.xin_staff_employment_title');?>
@@ -2082,7 +2098,7 @@ $cmodule_attributes = $Moduleattributes->where('company_id',$company_id)->where(
                   <input class="form-control" placeholder="<?= lang('Employees.xin_staff_employment_title');?>" name="credential_name" type="text">
                 </div>
               </div>
-              <div class="col-sm-6">
+              <div class="col-sm-4">
                 <div class="form-group">
                   <label for="credential_type" class="control-label">
                     <?= lang('Employees.xin_staff_employer_name');?>
@@ -2090,12 +2106,12 @@ $cmodule_attributes = $Moduleattributes->where('company_id',$company_id)->where(
                   <input class="form-control" placeholder="<?= lang('Employees.xin_staff_employer_name');?>" name="credential_type" type="text">
                 </div>
               </div>
-              <div class="col-sm-6">
+              <div class="col-sm-4">
                 <div class="form-group">
                   <label for="credential_issuer" class="control-label">
                     <?= lang('Employees.xin_staff_employment_location');?>
                     <span class="text-danger">*</span></label>
-                  <input class="form-control" placeholder="<?= lang('Employees.xin_staff_employment_location');?>" name="credential_issuer" type="text">
+                  <input class="form-control" placeholder="<?= lang('Employees.xin_staff_employment_location');?>  (i.e.; Dhaka, Bangladesh)" name="credential_issuer" type="text">
                 </div>
               </div>
               <div class="col-sm-4">

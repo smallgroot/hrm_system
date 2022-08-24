@@ -190,9 +190,9 @@ return [
 	'xin_staff_employment_type' => 'Employment Type',
 	'xin_staff_employer_name' => 'Employer Name',
 	'xin_staff_employment_title' => 'Designation',
-	'xin_staff_employment_location' => 'Employment Location (i.e.; Dhaka, Bangladesh)',
-	'xin_staff_employment_start' => 'Employment Start Date',
-	'xin_staff_employment_end' => 'Employment End Date',
+	'xin_staff_employment_location' => 'Employment Location',
+	'xin_staff_employment_start' => 'Start Date',
+	'xin_staff_employment_end' => 'End Date',
 	'xin_staff_employment_current' => 'Current',
 	/* Staff Employment - End */ 
 	'xin_document_eg_payslip_etc' => 'Eg. Payslip',
