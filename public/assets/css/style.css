@@ -19515,7 +19515,7 @@ new-task label input[type=checkbox] {
 }
 
 .user-profile-list table tbody tr {
-    box-shadow: 0 2px 6px -1px rgba(0, 0, 0, 0.1);
+    /* box-shadow: 0 2px 6px -1px rgba(0, 0, 0, 0.1); */
     border-radius: 4px;
     position: relative;
 }
@@ -19525,12 +19525,12 @@ new-task label input[type=checkbox] {
     opacity: 0;
     top: 0;
     right: 0;
-    background: #fcfbff;
+    /* background: #fcfbff; */
     bottom: 0;
     left: 0;
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-end;
 }
 
 .user-profile-list table tbody tr .overlay-edit .btn {
@@ -21641,7 +21641,9 @@ table.footable-paging-center > tfoot > tr.footable-paging > td {
     background-color: #7267EF;
     color: #fff;
 }
-
+table.dataTable{
+    border-spacing: 0 5px !important;
+}
 table.dataTable tbody > tr.selected,
 table.dataTable tbody > tr > .selected {
     background: #7267EF;

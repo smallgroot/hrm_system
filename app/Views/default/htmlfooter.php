@@ -121,10 +121,10 @@ $user_info = $UsersModel->where('user_id', $session['sup_user_id'])->first();
 		theme: 'fontawesome-stars',
 		showSelectedRating: false
 	});
-	$('.bar-rating').barrating('show', {
-            theme: 'bars-1to10',
-        });
-        var currentRating = $('#demo-fontawesome-o').data('current-rating');
+	// $('.bar-rating').barrating('show', {
+    //         theme: 'bars-1to10',
+	// });
+	var currentRating = $('#demo-fontawesome-o').data('current-rating');
 	$('#demo-fontawesome-o').barrating({
             theme: 'fontawesome-stars-o',
             showSelectedRating: false,

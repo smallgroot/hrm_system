@@ -191,7 +191,7 @@ if($added_by){
             <button type="button" class="btn btn-shadow btn-secondary text-uppercase">
             <?= lang('Main.xin_overview');?>
             </button>
-            </a> 
+            </a>
           </li>
           <?php  } ?>
           <?php if(in_array('appraisal3',staff_role_resource()) || $user_info['user_type'] == 'company') { ?>
@@ -360,6 +360,54 @@ if($added_by){
                 <?php echo $get_work_plan_desc['recommendation'] ?>
               <?php  } ?>
             </div>
+            <?php
+            /**
+             * Dispute Justification is visible for management
+             * or the current user is admin or the appraisee
+             */
+            if(
+              $kpa_data['dispute'] == 1 and
+                (
+                  $usession['sup_user_id'] == $kpa_data['employee_id'] or
+                  $user_info['user_role_id'] == 3 or
+                  $user_info['user_type'] == 'company'
+                )
+            ){ ?>
+            <div class="m-b-30 m-t-15">
+              <h6>Dispute Justification</h6>
+              <hr>
+              <?=$kpa_data['dispute_justification'];?>
+            </div>
+            <?php } ?>
+            </div>
+          <?php } ?>
+          <?php 
+          /**
+           * If the appraisal is submitted and
+           * the current user is admin or the appraisee
+           * and not already disputed
+           */
+          if(
+            $kpa_data['status'] == 3 and
+            ($usession['sup_user_id'] == $kpa_data['employee_id'] or $user_info['user_type'] == 'company')
+            and $kpa_data['dispute'] == 0
+          ){ ?>
+            <?=form_open(
+              'erp/talent/submit_dispute',
+              ['name' => 'submit_dispute', 'id' => 'submit_dispute'],
+              ['token' => $segment_id]
+            );?>
+            <div class="m-b-30 m-t-15">
+              <h6>Dispute</h6><hr/>
+              <div class="bg-white">
+                <div class="form-group">
+                  <label for="input_recommendation">Dispute Justification</label>
+                  <textarea class="form-control textarea" placeholder="Dispute Justification" name="dispute_justification" id="dispute_justification" rows="4"></textarea>
+                </div>
+              </div>
+              <button onclick="return confirm('You can not modify or remove after Submission. Are you sure?')"  type="submit" class="btn btn-primary">Submit Dispute</button>
+            </div>
+            <?=form_close()?>
           <?php } ?>
           </div>
         </div>
@@ -367,7 +415,7 @@ if($added_by){
 <!-- tab-1 end -->
 <!-- tab-2 start -->
 <?php  if($kpa_data['status'] == 2 || $kpa_data['status'] == 1){  ?>
-        <?php if(in_array('appraisal3',staff_role_resource()) || $user_info['user_type'] == 'company') { ?>
+        <?php if(in_array('appraisal3', staff_role_resource()) || $user_info['user_type'] == 'company') { ?>
         <div class="tab-pane fade <?php  if($kpa_data['status'] == 2 || $kpa_data['status'] == 1){ ?> active  show<?php }else{ ?> <?php }?> " id="pills-edit" role="tabpanel" aria-labelledby="pills-edit-tab">
           <?php $attributes = array('name' => 'update_evaluation', 'id' => 'update_evaluation', 'autocomplete' => 'off');?>
 		  <?php $hidden = array('token' => $segment_id);?>
@@ -434,7 +482,7 @@ if($added_by){
                           <?php echo $itech_comp['workplan_item'];?>
                         </td>
                         <td>
-                          <select class="bar-rating" name="work_plan_rating_value[<?= $itech_comp['workplan_item_id'];?>]" autocomplete="off">
+                          <select class="select2" data-plugin="select_hrm" name="work_plan_rating_value[<?= $itech_comp['workplan_item_id'];?>]" autocomplete="off">
                             <option value="1" <?php if($itech_comp['workplan_item_rating'] == 1):?> selected="selected"<?php endif;?>>1</option>
                             <option value="2" <?php if($itech_comp['workplan_item_rating'] == 2):?> selected="selected"<?php endif;?>>2</option>
                             <option value="3" <?php if($itech_comp['workplan_item_rating'] == 3):?> selected="selected"<?php endif;?>>3</option>
@@ -482,7 +530,7 @@ if($added_by){
                       <tr class="m-b-2">
                         <td scope="row" colspan="2"><?php echo $itech_comp['category_name'];?></td>
                         <td>
-                          <select class="bar-rating" name="technical_competencies_value[<?= isset($kpa_tech_comp['performance_appraisal_options_id']);?>][<?= $itech_comp['constants_id'];?>]" autocomplete="off">
+                          <select class="select2" data-plugin="select_hrm" name="technical_competencies_value[<?= isset($kpa_tech_comp['performance_appraisal_options_id']);?>][<?= $itech_comp['constants_id'];?>]" autocomplete="off">
                             <option value="1" <?php if(isset($kpa_tech_comp['appraisal_option_value']) == 1):?> selected="selected"<?php endif;?>>1</option>
                             <option value="2" <?php if(isset($kpa_tech_comp['appraisal_option_value']) == 2):?> selected="selected"<?php endif;?>>2</option>
                             <option value="3" <?php if(isset($kpa_tech_comp['appraisal_option_value']) == 3):?> selected="selected"<?php endif;?>>3</option>
@@ -514,13 +562,15 @@ if($added_by){
                       <?php $kpa_org_comp = $KpaoptionsModel->where('appraisal_id',$ifield_id)->where('appraisal_option_id',$iorg_comp['constants_id'])->first();?>
                       <tr class="m-b-2">
                         <td scope="row" colspan="2"><?php echo $iorg_comp['category_name'];?></td>
-                        <td><select name="organizational_competencies_value[<?= isset($kpa_org_comp['performance_appraisal_options_id']);?>][<?= $iorg_comp['constants_id'];?>]" class="bar-rating" autocomplete="off">
+                        <td>
+                          <select class="select2" data-plugin="select_hrm" name="organizational_competencies_value[<?= isset($kpa_org_comp['performance_appraisal_options_id']);?>][<?= $iorg_comp['constants_id'];?>]" autocomplete="off">
                             <option value="1" <?php if(isset($kpa_org_comp['appraisal_option_value']) == 1):?> selected="selected"<?php endif;?>>1</option>
                             <option value="2" <?php if(isset($kpa_org_comp['appraisal_option_value']) == 2):?> selected="selected"<?php endif;?>>2</option>
                             <option value="3" <?php if(isset($kpa_org_comp['appraisal_option_value']) == 3):?> selected="selected"<?php endif;?>>3</option>
                             <option value="4" <?php if(isset($kpa_org_comp['appraisal_option_value']) == 4):?> selected="selected"<?php endif;?>>4</option>
                             <option value="5" <?php if(isset($kpa_org_comp['appraisal_option_value']) == 5):?> selected="selected"<?php endif;?>>5</option>
-                          </select></td>
+                          </select>
+                        </td>
                       </tr>
                       <?php endforeach;?>
                     </tbody>
@@ -554,15 +604,12 @@ if($added_by){
                   </div>
                 </div>
               </div>
-
-              
             </div>
           </div>
           <div class="card-footer text-right">
           <input type="hidden" name="leader_get_submit_value" id="leader_get_submit_value" value="" />
-
           <input type="submit" id="leader_save_draft" class="btn btn-primary" value="Save Draft">
-            &nbsp;
+          &nbsp;
           <button onclick="return confirm('You can not modify or remove after Submission. Are you sure?')"  type="submit" id="leader_publish_save" class="btn btn-primary"><?= lang('Performance.xin_update_performance');?></button>
 
             <!-- <button type="submit" class="btn btn-primary">

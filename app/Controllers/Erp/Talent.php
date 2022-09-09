@@ -687,16 +687,7 @@ public function team_member_list() {
 		}
 	}
 	// |||add record|||
-	public function add_appraisal() {
-		
-
-
-		// echo($_POST['submit'] );
-		// die();
-			// echo '<pre>';
-			// print_r($_POST);
-			// exit();
-		
+	public function add_appraisal(){
 		$validation =  \Config\Services::validation();
 		$session = \Config\Services::session();
 		$request = \Config\Services::request();
@@ -704,20 +695,7 @@ public function team_member_list() {
 		if ($this->request->getPost('type') === 'add_record') {
 			$Return = array('result'=>'', 'error'=>'', 'csrf_hash'=>'');
 			$Return['csrf_hash'] = csrf_hash();
-			// set rules
-
-
-			// echo '<pre>';
-			// print_r($this->request->getPost();
-			// exit();
-
 			$rules = [
-				// 'title' => [
-				// 	'rules'  => 'required',
-				// 	'errors' => [
-				// 		'required' => lang('Main.xin_error_field_text')
-				// 	]
-				// ],
 				'employee_id' => [
 					'rules'  => 'required',
 					'errors' => [
@@ -732,12 +710,8 @@ public function team_member_list() {
 				]
 			];
 
-// echo "working";
-// exit();
-
 			if(!$this->validate($rules)){
 				$ruleErrors = [
-                    // "title" => $validation->getError('title'),
 					"employee_id" => $validation->getError('employee_id'),
 					"month_year" => $validation->getError('month_year')
                 ];
@@ -748,32 +722,6 @@ public function team_member_list() {
 					}
 				}
 			} else {
-
-
-// $temp = count($this->request->getPost('select_value',FILTER_SANITIZE_STRING));
-// $xyzxyz = 15;
-// for($i=1; $i<$temp; $i++){
-
-// 	$multiple_work_plan = $this->request->getPost('select_value',FILTER_SANITIZE_STRING);
-
-// 	$data[] = array(
-// 		'workplan_item' => $multiple_work_plan[$i],
-// 		'performance_appraisal_id' => $xyzxyz,
-		
-// 	);
-
-// }
-
-// $insert = count($data);
-// if($insert)
-// {
-// 	$OrderquoteitemsModel = new WorkplanModel();
-// 	$OrderquoteitemsModel->insertBatch($data);					
-// }
-// echo "done";
-// exit();
-
-				// $title = $this->request->getPost('title',FILTER_SANITIZE_STRING);	
 				$employee_id = $this->request->getPost('employee_id',FILTER_SANITIZE_STRING);	
 				$month_year = $this->request->getPost('month_year',FILTER_SANITIZE_STRING);
 				$remarks = $this->request->getPost('remarks',FILTER_SANITIZE_STRING);		
@@ -784,35 +732,14 @@ public function team_member_list() {
 				} else {
 					$company_id = $usession['sup_user_id'];
 				}
+				
+				$submit_value = $this->request->getPost('get_submit_value');
 
-
-			// echo	$this->request->getPost('draft_btn',FILTER_SANITIZE_STRING);
-			// exit();
-			// $draft_btn_v = $this->request->getPost('draft_btn',FILTER_SANITIZE_STRING);
-			
-
-			$submit_value = $this->request->getPost('get_submit_value');
-
-			if($submit_value == 'draft'){
-				$status_got_by_submit = 0;
-			}else{
-				$status_got_by_submit = 1;
-			}
-
-			// echo $status_got_by_submit;
-			// exit();
-
-			
-// echo "none of them clicked";
-// exit();
-// echo $title;
-// echo $employee_id;
-// echo $month_year;
-// echo $remarks;
-// print_r($UsersModel);
-// exit();
-
-
+				if($submit_value == 'draft'){
+					$status_got_by_submit = 0;
+				}else{
+					$status_got_by_submit = 1;
+				}
 				$data = [
 					'company_id'  => $company_id,
 					// 'title' => $title,
@@ -824,74 +751,29 @@ public function team_member_list() {
 					'created_at' => date('d-m-Y h:i:s')
 				];
 
-// echo '<pre>';
-// print_r($data);
-// exit();
-
 				$KpaModel = new KpaModel();
 				$KpaoptionsModel = new KpaoptionsModel();
 				$result = $KpaModel->insert($data);
 				$appraisal_id = $KpaModel->insertID();
+				
+				$Return['csrf_hash'] = csrf_hash();	
 
-// echo $appraisal_id;
-// echo "done";
-// exit();
-$Return['csrf_hash'] = csrf_hash();	
 				if ($result == TRUE) {
+					$multiple_work_plan = $this->request->getPost('select_value', FILTER_SANITIZE_STRING);
+					$temp = count($multiple_work_plan);
 
-
-
-					$temp = count($this->request->getPost('select_value',FILTER_SANITIZE_STRING));
-					// $xyzxyz = 15;
-					for($i=1; $i<$temp; $i++){
-					
-						$multiple_work_plan = $this->request->getPost('select_value',FILTER_SANITIZE_STRING);
-					
+					for($i = 0; $i < $temp; $i++){
 						$work_plan_data[] = array(
 							'workplan_item' => $multiple_work_plan[$i],
 							'performance_appraisal_id' => $appraisal_id,
-							'user_id' => $employee_id,
-							
-						);
-					
+							'user_id' => $employee_id,							
+						);					
 					}
-					
 					$insert = count($work_plan_data);
-					if($insert)
-					{
+					if($insert){
 						$OrderquoteitemsModel = new WorkplanModel();
 						$OrderquoteitemsModel->insertBatch($work_plan_data);					
 					}
-					// echo "done";
-					// exit();
-
-				// $Return['csrf_hash'] = csrf_hash();	
-				// if ($result == TRUE) {
-
-// echo "done";
-// exit();
-
-					// foreach($this->request->getPost('technical_competencies_value',FILTER_SANITIZE_STRING) as $key=>$tech_value){
-					// 	$data_ind = array(
-					// 	'company_id' => $company_id,
-					// 	'appraisal_id' => $appraisal_id,
-					// 	'appraisal_type' => 'technical',
-					// 	'appraisal_option_id' => $key,
-					// 	'appraisal_option_value' => $tech_value,
-					// 	);
-					// 	$KpaoptionsModel->insert($data_ind);
-					// }
-					// foreach($this->request->getPost('organizational_competencies_value',FILTER_SANITIZE_STRING) as $ikey=>$org_value){
-					// 	$data_org = array(
-					// 	'company_id' => $company_id,
-					// 	'appraisal_id' => $appraisal_id,
-					// 	'appraisal_type' => 'organizational',
-					// 	'appraisal_option_id' => $ikey,
-					// 	'appraisal_option_value' => $org_value,
-					// 	);
-					// 	$KpaoptionsModel->insert($data_org);
-					// }
-						
 					$Return['result'] = lang('Success.ci_appraisal_added_msg');
 				} else {
 					$Return['error'] = lang('Main.xin_error_msg');
@@ -906,9 +788,9 @@ $Return['csrf_hash'] = csrf_hash();
 		}
 	}
 
-// custom on 21/01/2022
+	// custom on 21/01/2022
 
-public function read_appraisal()
+	public function read_appraisal()
 	{
 		$session = \Config\Services::session();
 		$request = \Config\Services::request();
@@ -1023,8 +905,7 @@ public function read_appraisal()
 						$work_plan_data[] = array(
 							'workplan_item' => $multiple_work_plan[$i],
 							'performance_appraisal_id' => $id,
-							'user_id' => $employee_id,
-							
+							'user_id' => $employee_id,							
 						);
 					
 					}
@@ -1101,14 +982,10 @@ public function read_appraisal()
 	}
 	// update evaluation 5.2
 	public function update_evaluation(){
-		// echo '<pre>';
-		// print_r($_POST);
-		// exit();
-
 		$validation =  \Config\Services::validation();
 		$session = \Config\Services::session();
 		$request = \Config\Services::request();
-		$usession = $session->get('sup_username');	
+		$usession = $session->get('sup_username');
 		if ($this->request->getPost('type') === 'edit_record') {
 			$Return = array('result'=>'', 'error'=>'', 'csrf_hash'=>'');
 			$Return['csrf_hash'] = csrf_hash();
@@ -1179,24 +1056,6 @@ public function read_appraisal()
 					'recommendation' => $input_recommendation,
 					'status' => $status_got_by_submit,
 				];
-// echo $id;
-// echo '<pre>';
-// print_r($data);
-// exit();
-
-			// echo '<pre>';
-			// print_r($this->request->getPost('technical_competencies_value',FILTER_SANITIZE_STRING));
-			// exit();
-			
-// foreach($this->request->getPost('technical_competencies_value',FILTER_SANITIZE_STRING) as $abcd){
-// 	foreach($abcd as $abc){
-// 		$xyz[] = $abc;
-// 	}
-	
-// }
-// echo '<pre>';
-// print_r($xyz);
-// exit();
 
 				$KpaModel = new KpaModel();
 				$KpaoptionsModel = new KpaoptionsModel();
@@ -1209,19 +1068,13 @@ public function read_appraisal()
 				
 				$Return['csrf_hash'] = csrf_hash();	
 				if ($result == TRUE) {
-
-// workplan rating start
-
-
-
-	foreach($this->request->getPost('work_plan_rating_value',FILTER_SANITIZE_STRING) as $option_id => $star_data)
-	{
-		$data_ind = array(
-		'workplan_item_id ' => $option_id,
-		'workplan_item_rating' => $star_data,
-		);
-		$get_work_plan_model->update($option_id,$data_ind);
-	}
+					foreach($this->request->getPost('work_plan_rating_value',FILTER_SANITIZE_STRING) as $option_id => $star_data){
+						$data_ind = array(
+							'workplan_item_id ' => $option_id,
+							'workplan_item_rating' => $star_data,
+						);
+						$get_work_plan_model->update($option_id,$data_ind);
+					}
 
 // echo 'updated';
 // exit();
@@ -1305,6 +1158,58 @@ public function read_appraisal()
 		}
 
 
+	}
+	/**
+	 * Author: Muhit
+	 * Purpose: Submit Dispute Justification
+	 */
+	public function submit_dispute(){
+		$validation =  \Config\Services::validation();
+		$session = \Config\Services::session();
+		$request = \Config\Services::request();
+		$usession = $session->get('sup_username');
+
+		$return = array('result'=>'', 'error'=>'', 'csrf_hash'=>'');
+		$return['csrf_hash'] = csrf_hash();
+		/**
+		 * Rules
+		 */
+		$rules = [
+			'dispute_justification' => [
+				'rules'  => 'required',
+				'errors' => [
+					'required' => lang('Main.xin_error_field_text')
+				]
+			],
+		];
+		if(!$this->validate($rules)){
+			$ruleErrors = [
+				"dispute_justification" => $validation->getError('dispute_justification'),
+			];
+			foreach($ruleErrors as $err){
+				$return['error'] = $err;
+				if($return['error'] != ''){
+					$this->output($return);
+				}
+			}
+		} else {
+			$dispute_justification = $this->request->getPost('dispute_justification', FILTER_SANITIZE_STRING);
+			$id = udecode($this->request->getPost('token', FILTER_SANITIZE_STRING));
+			$data = [
+				'dispute' => 1,
+				'dispute_justification' => $dispute_justification,
+			];
+			$kpaModel = new KpaModel();
+			$result = $kpaModel->update($id, $data);
+			$return['csrf_hash'] = csrf_hash();	
+			if($result == TRUE) {
+				$return['result'] = lang('Success.ci_appraisal_updated_msg');
+			} else {
+				$return['error'] = lang('Main.xin_error_msg');
+			}
+			$this->output($return);
+			exit;
+		}
 	}
 	// update evaluation end
 	// delete record

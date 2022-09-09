@@ -23,7 +23,7 @@ class App extends BaseConfig
 	| environments.
 	|
 	*/
-	public $baseURL = 'http://localhost/hrm_system/';
+	public $baseURL = 'http://localhost/a2i/';
 
 	/*
 	|--------------------------------------------------------------------------

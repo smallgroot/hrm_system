@@ -137,19 +137,28 @@ $(document).ready(function() {
  });
 
 var ct = 1;
-function new_link()
-{
+function new_link(){
 	ct++;
 	var div1 = document.createElement('div');
+	div1.className = "input-group mb-3";
 	div1.id = ct;
 	// link to delete extended form elements
-	var delLink = '<div class="col-md-6"><div class="form-group"><label for="field_label">&nbsp;</label><span><a href="javascript:delIt('+ ct +')"><button type="button" class="btn icon-btn btn-sm btn-danger waves-effect waves-light remove-invoice-item" data-repeater-delete=""> <span class="fa fa-trash"></span></button></a></span></div></div>';
-	div1.innerHTML = document.getElementById('newlinktpl').innerHTML + delLink;
+	// var delLink = '<div class="col-md-6"><div class="form-group"><label for="field_label">&nbsp;</label><span><a href="javascript:delIt('+ ct +')"><button type="button" class="btn icon-btn btn-sm btn-danger waves-effect waves-light remove-invoice-item" data-repeater-delete=""> <span class="fa fa-trash"></span></button></a></span></div></div>';
+  // var delLink = '<a href="javascript:delIt('+ ct +')" class="btn icon-btn btn-sm btn-danger waves-effect waves-light remove-invoice-item" type="button"><span class="fa fa-trash"></span></a>';
+	// div1.innerHTML = document.getElementById('newlinktpl').innerHTML + delLink;
+	div1.innerHTML = `
+    <div class="input-group-prepend">
+      <span class="input-group-text">Workplan Item ${ct-1}</span>
+    </div>  
+    <input type="text" name="select_value[]" class="form-control" placeholder="Workplan Item" aria-label="Workplan Item">
+    <div class="input-group-append">
+      <a href="javascript:delIt(${ct})" class="btn btn-danger waves-effect waves-light remove-invoice-item" type="button"><span class="fa fa-trash"></span></a>
+    </div>
+  `;
 	document.getElementById('newlink').appendChild(div1);
 }
 // function to delete the newly added set of elements
-function delIt(eleId)
-{
+function delIt(eleId){
 	d = document;
 	var ele = d.getElementById(eleId);
 	var parentEle = d.getElementById('newlink');
