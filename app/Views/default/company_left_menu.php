@@ -40,6 +40,10 @@ $setup_modules = unserialize($xin_com_system['setup_modules']);
   <li class="pc-item"><a href="<?= site_url('erp/desk');?>" class="pc-link "><span class="pc-micon"><i data-feather="home"></i></span><span class="pc-mtext">
     <?= lang('Dashboard.dashboard_title');?>
     </span></a></li>
+    <!-- financial code -->
+  <li class="pc-item"><a href="<?= site_url('erp/financial-code');?>" class="pc-link "><span class="pc-micon"><i data-feather="help-circle"></i></span><span class="pc-mtext">
+    <?= lang('Dashboard.fincancial_code');?>
+    </span></a></li>
   <!-- Employees -->
   <li class="pc-item"><a href="<?= site_url('erp/staff-list');?>" class="pc-link "><span class="pc-micon"><i data-feather="users"></i></span><span class="pc-mtext">
     <?= lang('Dashboard.dashboard_employees');?>

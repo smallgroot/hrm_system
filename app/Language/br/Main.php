@@ -3,6 +3,7 @@
 // override core en language system validation or define your own en language validation message
 return [
 'xin_add' => 'Adicionar',
+
 'xin_edit' => 'Editar',
 'xin_view' => 'Exibir',
 'xin_view_more' => 'Ver mais',

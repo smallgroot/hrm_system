@@ -2,6 +2,10 @@
 //Dashboard override core en language system validation or define your own en language validation message
 return [
 	'dashboard_title' => 'Home',
+	'fincancial_code' => 'Fincancial Code',
+	'financial_code' => 'Financial Code',
+	'financial_list' => 'Finacial List',
+	'left_edit_financial_code' => 'Edit Financial Code',
 	'xin_acc_calendar' => 'Calendar',
 	'xin_page_rendered_text' => 'Page rendered in',
 	'xin_codeigniter_version' => 'CodeIgniter Version',

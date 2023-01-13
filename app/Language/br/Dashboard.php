@@ -3,6 +3,7 @@
 //Dashboard override core en language system validation or define your own en language validation message
 return [
 'dashboard_title' => 'Home',
+
 'xin_acc_calendar' => 'Calendário',
 'xin_page_rendered_text' => 'Página renderizada em',
 'xin_codeigniter_version' => 'Versão do CodeIgniter',

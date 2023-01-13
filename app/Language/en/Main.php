@@ -2,6 +2,17 @@
 // override core en language system validation or define your own en language validation message
 return [
 	'xin_add' => 'Add',
+	'finacial_code_type' => 'Finacial code type',
+	'fincancial_code_type' => 'Finacial code type',
+	'financial_code_no' => 'Finacial code number',
+	'description' =>'Description',
+	'english' => 'english',
+	'bangla' => 'bangla',
+	'description_bangla' => 'Description bangla',
+	'finacial_code' => 'Finacial code',
+	'short_description' => 'Short description',
+	'description_english' => 'Description english',
+	'long_Description_' =>'Long description bangla',
 	'xin_edit' => 'Edit',
 	'xin_view' => 'View',
 	'xin_view_more' => 'View More',
